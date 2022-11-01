@@ -6,8 +6,35 @@
             $this->form_validation->set_rules('email','Email','required');
             $this->form_validation->set_rules('password','Password','required|min_length[5]|max_length[8]');
             if ($this->form_validation->run() == TRUE) {
+                
+                $email = $_POST['email'];
+                $password = md5($_POST['password']);
+                
                 // check user in database 
-                $this
+                $this->db->select('*');
+                $this->db->from('users');
+                $this->db->where(array('email' => $email, 'password' => $password));
+                $query = $this->db->get();
+
+                $user = $query->row();
+                // if user are exist
+                if ($user->name) {
+
+                    // temporary message
+                    $this->session->set_flashdata("success", "You are logged in");
+
+                    // set session variable  
+                    $_SESSION['user_logged'] = TRUE;
+                    $_SESSION['email'] = $user->email;
+
+                    // redirect to profile page/ index
+                    redirect("user/profile", "refresh");
+
+                } else {
+                    $this->session->set_flashdata("error", "NO!!! your account are not exist oiin database");
+                    redirect("auth/login", "refresh"); 
+                }
+                    
             }
 
             $this->load->view ('login');
