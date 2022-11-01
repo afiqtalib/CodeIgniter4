@@ -11,7 +11,7 @@
         public function login ()
         {
             $this->form_validation->set_rules('email','Email','required');
-            $this->form_validation->set_rules('password','Password','required|min_length[5]|max_length[8]');
+            $this->form_validation->set_rules('password','Password','required');
             if ($this->form_validation->run() == TRUE) {
                 
                 $email = $_POST['email'];
