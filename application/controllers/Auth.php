@@ -13,12 +13,12 @@
                 // check user in database 
                 $this->db->select('*');
                 $this->db->from('users');
-                $this->db->where(array('email' => $email, 'password' => $password));
+                $this->db->where(array('email'=>$email, 'password'=>$password));
                 $query = $this->db->get();
 
                 $user = $query->row();
                 // if user are exist
-                if ($user->name) {
+                if ($user->phone) {
 
                     // temporary message
                     $this->session->set_flashdata("success", "You are logged in");

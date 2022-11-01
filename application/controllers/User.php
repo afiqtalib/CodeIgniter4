@@ -4,13 +4,10 @@
         public function __construct()
         {
             parent::__construct();
-            {
-                if (!isset($_SESSION['user_logged'])) {
-                    $this->session->set_flashdata("error", "Please login first");
-                    redirect("auth/login");
-                }
+            if (!isset($_SESSION['user_logged'])) {
+                $this->session->set_flashdata("error", "Please login first");
+                redirect("auth/login");
             }
-            
         }
 
 
