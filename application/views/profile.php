@@ -33,8 +33,8 @@
   <body>    
     <div class="container register">
         <div class="text-center pt-4">
-            <h6 class="h3 text-red-900 "><i class="fa fa-chalkboard-teacher"></i> Login</h6>
-            <h6 class="h6 text-blue-900 mb-2">User can login into TTM system</h6>
+            <h6 class="h3 text-red-900 "><i class="fa fa-chalkboard-teacher"></i> Wekcome to Our System</h6>
+            <h6 class="h6 text-blue-900 mb-2">User can view this system</h6>
         </div>
         <div class="row justify-content-center">
             <div class="col-lg-5 text-center p-4">
@@ -46,8 +46,13 @@
                     <div class="alert alert-success"><?php echo $_SESSION['success']; ?></div>
                 <?php }?>
 
-                HELLO, <?php echo $_SESSION['name']; ?>
-
+                HELLO, <?php echo $_SESSION['email']; ?>
+                <br><br>
+                
+                <div class="text-center">
+                    <a href="<?php echo base_url();?>index.php/auth/logout" class="btn btn-dark"><i class="fa fa-walking"></i> Logout</a>
+                </div>
+                <br><br>
             </div>
             
         </div>
