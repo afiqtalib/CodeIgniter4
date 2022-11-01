@@ -92,7 +92,7 @@
         <footer class="sticky-footer">
                     <div class="container my-auto">
 		  		<div class="copyright text-center text-light my-auto">
-					<span>Copyright &copy; Train The Marketer (TTM) by Pande Media <img src=" <?php echo base_url(); ?> assets/image/logo-pm.png"  alt=""> </span>
+					<span>Copyright &copy; Train The Marketer (TTM) by Pande Media <img src="<?php echo base_url('assets/image/logo-pm.png');?>" alt="logo" width="15%"> </span>
 		  		</div>
 			</div>
 	  	</footer>
