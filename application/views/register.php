@@ -37,11 +37,9 @@
             <h6 class="h3 text-red-900 "><i class="fa fa-chalkboard-teacher"></i> Registration</h6>
             <h6 class="h6 text-blue-900 mb-2">Admin Please fill the form below</h6>
         </div>
-        
-        
         <div class="row justify-content-center">
             <div class="col-lg-5" >
-                <!-- test register  -->
+                <!-- result to register the user   -->
                 <?php   if (isset($_SESSION['success'])) { ?>
                     <div class="alert alert-success"><?php echo $_SESSION['success']; ?></div>
                 <?php }?>
