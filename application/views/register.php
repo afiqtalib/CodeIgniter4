@@ -32,7 +32,7 @@
     </style>
 
   <body>    
-    <div class="container register">
+    <div class="container register">dvdv
         <div class="text-center pt-4">
             <h6 class="h3 text-red-900 "><i class="fa fa-chalkboard-teacher"></i> Registration</h6>
             <h6 class="h6 text-blue-900 mb-2">Admin Please fill the form below</h6>
