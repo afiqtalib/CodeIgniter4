@@ -1,9 +1,20 @@
 <?php 
     class Auth extends CI_Controller
     {
+        public function login ()
+        {
+            $this->form_validation->set_rules('email','Email','required');
+            $this->form_validation->set_rules('password','Password','required|min_length[5]|max_length[8]');
+            if ($this->form_validation->run() == TRUE) {
+                // check user in database 
+                $this
+            }
+
+            $this->load->view ('login');
+        }
+
         public function register()
         {
-            // echo 'hello world';
             // set rule/validate the input 
             if (isset($_POST['register'])) {
                 $this->form_validation->set_rules('name','Name','required');

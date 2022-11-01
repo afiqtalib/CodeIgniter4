@@ -23,8 +23,7 @@
             max-width: 60%;
             background: #fff;
             position: relative;
-            margin: 15px auto;
-            /* padding: 5px 35px 5px 35px; */
+            margin: 20px auto;
             -webkit-box-shadow: 0px 50px 100px 0px rgba(64, 1, 4, 0.1), 0px -6px 0px 0px rgba(248, 99, 107, 0.004);
             box-shadow: 0px 50px 100px 0px rgba(64, 1, 4, 0.1), 0px -6px 0px 0px rgba(248, 99, 107, 0.004);
             border-radius: 15px;
@@ -81,6 +80,8 @@
                         <button class="btn btn-primary btn-user btn-block mt-2 mb-3" name="register"> 
                         <i class="fa fa-user-plus"></i> Register    
                         </button>
+                        <br>
+                        <a href="login" class="ca">Login</a>
                     </div>
                 </form>
 
@@ -92,7 +93,7 @@
         <footer class="sticky-footer">
                     <div class="container my-auto">
 		  		<div class="copyright text-center text-light my-auto">
-					<span>Copyright &copy; Train The Marketer (TTM) by Pande Media <img src="<?php echo base_url('assets/image/logo-pm.png');?>" alt="logo" width="15%"> </span>
+					<span>Copyright &copy; Train The Marketer (TTM) by <img src="<?php echo base_url('assets/image/logo-pm.png');?>" alt="logo" width="15%"> </span>
 		  		</div>
 			</div>
 	  	</footer>
