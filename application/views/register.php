@@ -80,7 +80,6 @@
                         <button class="btn btn-primary btn-user btn-block mt-2 mb-3" name="register"> 
                         <i class="fa fa-user-plus"></i> Register    
                         </button>
-                        <br>
                         <a href="login" class="ca">Login</a>
                     </div>
                 </form>
