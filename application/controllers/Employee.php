@@ -20,12 +20,14 @@ class Employee extends CI_Controller
 		$this->load->view('employee/index');
 	
 		/*Check submit button */
-		if($this->input->post('add'))
+		if($this->input->post('submit'))
 		{
-		    $data['first_name']=$this->input->post('first_name');
-			$data['last_name']=$this->input->post('last_name');
+		    $data['name']=$this->input->post('name');
 			$data['email']=$this->input->post('email');
-			$response=$this->Crud_model->saverecords($data);
+			$data['username']=$this->input->post('username');
+			$data['phonenum']=$this->input->post('phonenum');
+			$data['password']=$this->input->post('password');
+			$response=$this->Emp_model->saverecords($data);
 			if($response==true){
 			        echo "Records Saved Successfully";
 			}
@@ -34,6 +36,5 @@ class Employee extends CI_Controller
 			}
 		}
 	}
-	
 }
 ?>

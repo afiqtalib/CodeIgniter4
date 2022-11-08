@@ -60,24 +60,10 @@
                                 </div>
                             </div>
                             
-                            <div class="row">
-                                <div class="col">
-                                    <div class="form-floating mt-3">
-                                        <input type="text" name="department" class="form-control" id="floatingPassword" placeholder="Password">
-                                        <label for="floatingPassword">Department</label>
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="form-floating mt-3">
-                                        <input type="text" name="position" class="form-control" id="floatingPassword" placeholder="Password">
-                                        <label for="floatingPassword">Position</label>
-                                    </div>
-                                </div>
-                            </div>
 
                             <div class="text-center">
                                 <div class="d-grid gap-2 col-6 mx-auto mt-3">
-                                    <button class="btn btn-primary" type="button" name="submit" >Submit</button>
+                                    <button class="btn btn-primary" name="submit" >Submit</button>
                                 </div>
                             </div>
 
