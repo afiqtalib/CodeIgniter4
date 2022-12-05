@@ -9,4 +9,13 @@ class Crud_model extends CI_Model
 		$query = $this->db->get("users");
 		return $query->result();
 	}
+
+	// INSERT MODEL FOR HELP.WASAP.MY
+	// for simple project to collect customer problem into table cust_services
+	function saverecords($data)
+	{
+        $this->db->insert('cust_services',$data);
+        return true;
+	}
+
 }

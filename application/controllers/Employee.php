@@ -17,7 +17,7 @@ class Employee extends CI_Controller
 	public function add()
 	{
 		/*load registration view form*/
-		$this->load->view('employee/index');
+		$this->load->view('employee');
 	
 		/*Check submit button */
 		if($this->input->post('submit'))

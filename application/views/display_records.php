@@ -27,7 +27,7 @@
     $i = 1;
     foreach ($data as $row) {
       echo "<tr>";
-      echo "<td>" . $i . "</td>";
+      echo "<td>" . $i++ . "</td>";
       echo "<td>" . $row->name . "</td>";
       echo "<td>" . $row->email . "</td>";
       echo "<td>" . $row->password . "</td>";
@@ -37,7 +37,6 @@
 
 
       echo "</tr>";
-      $i++;
     }
     ?>
   </table>
