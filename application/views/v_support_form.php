@@ -11,8 +11,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css"> </link>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
 
+    <!-- BOOTSTRAP VERSION 5.0.0 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="<?php echo base_url(); ?> assets/css/bootstrap.min.css">
+
+    <!-- SWEETALERT CDN -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 </head>
 
@@ -103,9 +107,10 @@
         <div class="row justify-content-center">
             <div class="col-lg-10" >
                 <!-- result to register the user   -->
-                <?php   if (isset($_SESSION['success'])) { ?>
-                    <div class="alert alert-success"><?php echo $_SESSION['success']; ?></div>
-                <?php }?>
+                <?php   if (isset($_SESSION['success'])) { 
+                    echo '<script type="text/javascript">sweetAlert("Success !"," Your application is failed","success")</script>';
+                }
+                ?>
 
                 <!-- check validation form -->
                 <?php echo validation_errors('<div class="alert alert-danger">','</div>');?>

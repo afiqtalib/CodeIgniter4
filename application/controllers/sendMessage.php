@@ -90,7 +90,7 @@ class sendMessage extends CI_Controller {
 			// redirect("sendMessage/index");  
         }
 	
-		// also can use public function <name>
+	// also can use public function <name> CURRENT
 	public function savingdata()  
     {
 		// set rule/validate the input 
@@ -103,8 +103,7 @@ class sendMessage extends CI_Controller {
 
 			// if form validation
 			if ($this->form_validation->run() == TRUE) {
-				echo 'form validated';
-
+				// echo 'form validated';
 				date_default_timezone_set("Asia/Kuala_Lumpur");
 				// insert add into db
 				$data = array (
@@ -118,14 +117,12 @@ class sendMessage extends CI_Controller {
 
 				$this->db->insert('cust_services',$data);
 
-				$this->session->set_flashdata("success", "Successfully submit your message");
+				$this->session->set_flashdata("success", "");
 				redirect("sendMessage/savingdata", "refresh");
 			}
 		}
 		// load view
 		$this->load->view ('v_support_form');
-
-		
     }  
 }  
 ?>  
