@@ -40,10 +40,8 @@
                 } else {
                     $this->session->set_flashdata("error", "NO!!! your account are not exist oiin database");
                     redirect("auth/login", "refresh"); 
-                }
-                    
+                }         
             }
-
             $this->load->view ('login');
         }
 
@@ -71,14 +69,12 @@
                         'created_date'=> date ('Y-m-d'),
                         'phone'=>$_POST['phone']
                     );
-
                     $this->db->insert('users',$data);
 
                     $this->session->set_flashdata("success", "Your account has been registered");
                     redirect("auth/register", "refresh");
                 }
             }
-
             // load view
             $this->load->view ('register');
         }

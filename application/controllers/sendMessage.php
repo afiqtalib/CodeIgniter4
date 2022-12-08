@@ -118,6 +118,7 @@ class sendMessage extends CI_Controller {
 				$this->db->insert('cust_services',$data);
 
 				$this->session->set_flashdata("success", "");
+				
 				redirect("sendMessage/savingdata", "refresh");
 			}
 		}

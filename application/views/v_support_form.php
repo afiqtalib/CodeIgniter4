@@ -108,7 +108,12 @@
             <div class="col-lg-10" >
                 <!-- result to register the user   -->
                 <?php   if (isset($_SESSION['success'])) { 
-                    echo '<script type="text/javascript">sweetAlert("Success !"," Your application is failed","success")</script>';
+                    // echo '<script type="text/javascript">sweetAlert("Success !"," Your application is failed","success")</script>';
+                    // $prop_id = '$_GET[phone]';
+                    // echo "<a href=\"submit_docs.php?prop_id=".$prop_id."\">Click </a>";
+                    // echo '<a  target="_blank" href="https://wasap.my/601121828562"';
+                    echo '<script type="text/javascript" location.href = "https://www.javascripttutorial.net/"></script>';
+
                 }
                 ?>
 
@@ -160,10 +165,10 @@
 
                     <div class="text-center">
 
-                        <button class="btn btn-primary btn-user btn-block mb-3 m-3" name="submit"> 
+                        <button class="btn btn-primary btn-user btn-block mb-3" name="submit"> 
                             <i class="fa fa-share-square"></i> Submit    
                         </button>
-                        <button class="btn btn-warning btn-user btn-block mb-3 m-3" type="reset"> 
+                        <button class="btn btn-warning btn-user btn-block mb-3" type="reset"> 
                             <i class="fa fa-sync"></i> RESET   
                         </button>
 
