@@ -55,7 +55,7 @@ class Help extends CI_Controller {
 				$this->session->set_flashdata("success", "");
 				
 				// this will execute after we submit the form (direct to the page HELP, refresh the page)
-				redirect("Help", "refresh");
+				// redirect("Help", "refresh");
 			}
 		}
 		// load view
