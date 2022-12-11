@@ -25,10 +25,10 @@
             margin: 0;
             width: 100%;
             /* background: linear-gradient(300deg, rgba(49,140,231,1) 10%, rgba(147,36,166,1) 100%);  */
-            /* background: rgb(3,192,60);
-            background: linear-gradient(82deg, rgba(3,192,60,1) 0%, rgba(40,199,111,1) 100%); */
+            background: rgb(3,192,60);
+            background: linear-gradient(82deg, rgba(3,192,60,1) 0%, rgba(40,199,111,1) 100%);
             /* assets/image/bg-wasapmy.png */
-            background-image: url('assets/image/logo-wasapmy2.png');
+            /* background-image: url('assets/image/logo-wasapmy2.png');
             background-repeat: repeat;
             background-position: left;
             background-color: var(--bs-body-bg);
@@ -38,10 +38,10 @@
             background-color: #F5F5F7;
             font-family: Verdana, Geneva, Tahoma, sans-serif;
             color: rgb(79, 79, 79);
-            -webkit-animation: name 35s infinite;
+            -webkit-animation: name 35s infinite; */
         }
         
-        @-webkit-keyframes name {
+        /* @-webkit-keyframes name {
             0% {
                 background-color: #F5F5F7;
             }
@@ -60,7 +60,7 @@
             100% {
                 background-color: #F5F5F7;
             }
-        }   
+        }    */
 
         /* .register
         {
@@ -106,16 +106,27 @@
         </div>
         <div class="row justify-content-center">
             <div class="col-lg-10" >
-                <!-- result to register the user   -->
+                <!-- MESSAGE for filling the form   -->
                 <?php   if (isset($_SESSION['success'])) { 
-                    // echo '<script type="text/javascript">sweetAlert("Success !"," Your application is failed","success")</script>';
-                    // $prop_id = '$_GET[phone]';
-                    // echo "<a href=\"submit_docs.php?prop_id=".$prop_id."\">Click </a>";
-                    // echo '<a  target="_blank" href="https://wasap.my/601121828562"';
-                    echo '<script type="text/javascript" location.href = "https://www.javascripttutorial.net/"></script>';
+                    echo '<script type="text/javascript">sweetAlert("Success !","Your application is failed","success")</script>';
+                    // echo '<script>location.replace("https://wasap.my/601156759880/nakorder")</script>';
+                    //  foreach ($_POST as $selected => $value) {
+                        // echo "$selected = $value";
+                        // echo "$value";     
+                    // echo '<script>window.location.replace("https://wasap.my/601156759880/Assalamualaikum\r\n'.$value.'")</script>';
+                    // }
+                    // $name=$_POST['name'];
+                    // $phone=$_POST['phone']; 
+                    
+                    if((isset($_POST['name'])) && (isset($_POST['phone'])) && (isset($_POST['user_type'])) && (isset($_POST['prob_type'])) && (isset($_POST['message'])))  {
 
+                        $text_msg = "Asslamulaikum Customer Services WASAP.MY" .'%0D%0A %0D%0A'."Name: ".$_POST['name'] .'%0D%0A'. "Phone: ".$_POST['phone'] .'%0D%0A'. "Type of user: ".$_POST['user_type'].'%0D%0A'. "Problem: ".$_POST['prob_type'] .'%0D%0A'. "Message: " .$_POST['message']. '%0D%0A'. "Thank You";
+                        }
+                    // $text_msg= $name.$phone.$message;
+                    echo '<script>window.location.replace("https://api.whatsapp.com/send?phone=601156759880&text='.$text_msg.'")</script>';
                 }
                 ?>
+                <!-- %0D%0A -->
 
                 <!-- check validation form -->
                 <?php echo validation_errors('<div class="alert alert-danger">','</div>');?>
@@ -171,6 +182,14 @@
                         <button class="btn btn-warning btn-user btn-block mb-3" type="reset"> 
                             <i class="fa fa-sync"></i> RESET   
                         </button>
+                        <?php
+                            $txt_1 = 'You can see there is no need to include special commands for spaces if they  are in a PHP variable.'."%0A";
+                            $txt_2 = 'But you do need to include some inside the variable to jump lines.'."%0D%0A";
+                            $txt_3 = 'And nothing special for links: https://example.com';
+                            $msg= $txt_1.$txt_2.$txt_3."%0A";
+                        ?>
+                            <button class="btn btn-success btn-user btn-block mb-3 " href="https://wasap.my/01156759880/text=<?php echo $msg ?>.">..
+                            </button>
 
                     </div>
                 </form>
