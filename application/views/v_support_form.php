@@ -25,10 +25,10 @@
             margin: 0;
             width: 100%;
             /* background: linear-gradient(300deg, rgba(49,140,231,1) 10%, rgba(147,36,166,1) 100%);  */
-            background: rgb(3,192,60);
-            background: linear-gradient(82deg, rgba(3,192,60,1) 0%, rgba(40,199,111,1) 100%);
+            /* background: rgb(3,192,60);
+            background: linear-gradient(82deg, rgba(3,192,60,1) 0%, rgba(40,199,111,1) 100%); */
             /* assets/image/bg-wasapmy.png */
-            /* background-image: url('assets/image/logo-wasapmy2.png');
+            background-image: url('assets/image/bg-wasapmy2.png');
             background-repeat: repeat;
             background-position: left;
             background-color: var(--bs-body-bg);
@@ -38,10 +38,10 @@
             background-color: #F5F5F7;
             font-family: Verdana, Geneva, Tahoma, sans-serif;
             color: rgb(79, 79, 79);
-            -webkit-animation: name 35s infinite; */
+            -webkit-animation: name 35s infinite;
         }
         
-        /* @-webkit-keyframes name {
+        @-webkit-keyframes name {
             0% {
                 background-color: #F5F5F7;
             }
@@ -60,7 +60,7 @@
             100% {
                 background-color: #F5F5F7;
             }
-        }    */
+        }   
 
         /* .register
         {
