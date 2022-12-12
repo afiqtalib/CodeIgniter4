@@ -12,6 +12,7 @@ class Crud extends CI_Controller
   /*load Model*/
   $this->load->model('Crud_model');
   }
+  
     /*Display*/
     public function displaydata()
   {
