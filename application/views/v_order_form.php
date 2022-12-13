@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Help | WASAP MY</title>
+    <title>Order | Iman Catering </title>
 
     <!-- IMPORT FONT STYLE -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:wght@300&display=swap"> </link>
@@ -18,29 +18,14 @@
     <!-- SWEETALERT CDN -->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-    <!-- bootstrap  -->
-    <!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script> -->
-
 </head>
     <style>
         body {
             margin: 0;
             width: 100%;
-            /* background: linear-gradient(300deg, rgba(49,140,231,1) 10%, rgba(147,36,166,1) 100%);  */
-            background: rgb(3,192,60);
-            background: linear-gradient(82deg, rgba(3,192,60,1) 0%, rgba(40,199,111,1) 100%);
             /* assets/image/bg-wasapmy.png */
 
-            background-image: url('assets/image/bg-wasapmy2.png');
-            background-repeat: repeat;
-            background-position: left;
-            background-color: var(--bs-body-bg);
-            -webkit-text-size-adjust: 100%;
-            -webkit-tap-highlight-color: transparent;
-
-            background-color: #F5F5F7;
+            /* background-color: #F5F5F7; */
             font-family: Verdana, Geneva, Tahoma, sans-serif;
             color: rgb(79, 79, 79);
             -webkit-animation: name 35s infinite;
@@ -48,22 +33,22 @@
         
         @-webkit-keyframes name {
             0% {
-                background-color: #F5F5F7;
+                background-color: #ff90b4;
             }
             10% {
-                background-color: #6A3987;
+                background-color: #840844;
             }
             30% {
-                background-color: #FF2851;
+                background-color: #f796b5;
             }
             50% {
-                background-color: #3AC551;
+                background-color: #900b4d;
             }
             70% {
-                background-color: #0B5ED7;
+                background-color: #930044;
             }
             100% {
-                background-color: #F5F5F7;
+                background-color: #fa93b1;
             }
         }   
 
@@ -87,7 +72,7 @@
             font-family: 'Inter', sans-serif;
             border-radius: 20px;
             box-shadow: 0 4px 5px -1px rgba(0, 0, 0, 0.4), 0 2px 3px -1px rgba(0, 0, 0, 0.4);
-            width: 60%;
+            width: 40%;
             margin: 5% auto;
             padding: 10px;
         }
@@ -101,41 +86,64 @@
             border-radius: 12px;
         }
 
-        span {cursor:pointer; }
-
-		.number{
-			margin:100px;
-		}
-
-		.minus, .plus{
-			width:20px;
-			height:20px;
-			background:#f2f2f2;
-			border-radius:4px;
-			padding:8px 5px 8px 5px;
-			border:1px solid #ddd;
-            display: inline-block;
-            vertical-align: middle;
+        /* add on css */
+        .icon-shape {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-		}
-
-		input{
-			height:34px;
-            width: 100px;
-            text-align: center;
-            font-size: 26px;
-			border:1px solid #ddd;
-			border-radius:4px;
-            display: inline-block;
             vertical-align: middle;
         }
+
+        .icon-sm {
+            width: 2rem;
+            height: 2rem;
+            
+        }
+
     </style>
+
+    <script>
+        function incrementValue(e) {
+        e.preventDefault();
+        var fieldName = $(e.target).data('field');
+        var parent = $(e.target).closest('div');
+        var currentVal = parseInt(parent.find('input[name=' + fieldName + ']').val(), 10);
+
+        if (!isNaN(currentVal)) {
+            parent.find('input[name=' + fieldName + ']').val(currentVal + 1);
+        } else {
+            parent.find('input[name=' + fieldName + ']').val(0);
+        }
+    }
+
+    function decrementValue(e) {
+        e.preventDefault();
+        var fieldName = $(e.target).data('field');
+        var parent = $(e.target).closest('div');
+        var currentVal = parseInt(parent.find('input[name=' + fieldName + ']').val(), 10);
+
+        if (!isNaN(currentVal) && currentVal > 0) {
+            parent.find('input[name=' + fieldName + ']').val(currentVal - 1);
+        } else {
+            parent.find('input[name=' + fieldName + ']').val(0);
+        }
+    }
+
+    $('.input-group').on('click', '.button-plus', function(e) {
+        incrementValue(e);
+    });
+
+    $('.input-group').on('click', '.button-minus', function(e) {
+        decrementValue(e);
+    });
+    </script>
 
   <body>    
     <div class="container-sm box-container">
         <div class="text-center pt-4">
-            <h6 class="h3 text-red-900 "><img src="<?php echo "iman catering";?>" alt="iman catering" width="20%"></h6>
-            <h6 class="h6 text-black-900 mb-2">Please fill this form</h6>
+            <h6 class="h3 text-red-900 "><img src="<?php echo base_url('assets/image/iman-catering.png');?>" alt="logo" width="40%"></h6>
+            <h6 class="h6 text-black-900 mb-3">Hi pelanggan Iman Catering, Anda boleh order sekarang!</h6>
         </div>
         <div class="row justify-content-center">
             <div class="col-lg-10" >
@@ -151,12 +159,20 @@
                     // $name=$_POST['name'];
                     // $phone=$_POST['phone']; 
                     
-                    if((isset($_POST['name'])) && (isset($_POST['phone'])) && (isset($_POST['user_type'])) && (isset($_POST['prob_type'])) && (isset($_POST['message'])))  {
+                    if((isset($_POST['name'])) && (isset($_POST['phone'])) && (isset($_POST['p_ayam'])) && (isset($_POST['p_kambing'])) && (isset($_POST['remark'])) && (isset($_POST['link'])))  {
 
-                        $text_msg = "Asslamulaikum Customer Services WASAP.MY" .'%0D%0A %0D%0A'."Name: ".$_POST['name'] .'%0D%0A'. "Phone: ".$_POST['phone'] .'%0D%0A'. "Type of user: ".$_POST['user_type'].'%0D%0A'. "Problem: ".$_POST['prob_type'] .'%0D%0A'. "Message: " .$_POST['message']. '%0D%0A'. "Thank You";
-                        }
+                        $txt_1 = 'Name: '.$_POST['name']."%0A";
+                        $txt_2 = 'Phone: '.$_POST['phone']."%0D%0A";
+                        $txt_3 = 'Ayam PAX: '.$_POST['p_ayam']."%0D%0A";
+                        $txt_4 = 'Kambing PAX: '.$_POST['p_kambing']."%0D%0A";
+                        $txt_5 = 'Message: '.$_POST['remark']."%0D%0A";
+                        $txt_6 = 'Link Location: '.$_POST['link']."%0D%0A";
+                        // $txt_3 = 'And nothihahahahinks: https://example.com';
+
+                        $msg = "Asslamulaikum Iman Catering" .'%0D%0A %0D%0A'. $txt_1.$txt_2.$txt_3.$txt_4.$txt_5.$txt_6. "Thank You";
+                    }
                     // $text_msg= $name.$phone.$message;
-                    echo '<script>window.location.replace("https://api.whatsapp.com/send?phone=601156759880&text='.$text_msg.'")</script>';
+                    echo '<script>window.location.replace("https://api.whatsapp.com/send?phone=60199972514&text='.$msg.'")</script>';
                 }
                 ?>
                 <!-- %0D%0A -->
@@ -175,77 +191,121 @@
                         <input type="text" name="phone" class="form-control box-text" placeholder="0123456789">
                     </div>
 
-                    <div class="form-group">
-                        <label for="" class="label-default"> <i class="fa fa-mobile-alt"></i>Single Pack</label>
-                        <div class="">
-                            <span class="minus">-</span>
-                            <input type="text" name="single_pack" value="1"/>
-                            <span class="plus">+</span>
-                            <button type="button" class="btn-sm btn-outline-primary minus">-</button>
-                            <button type="button" class="btn-sm btn-outline-primary plus">+</button>
+                    <!-- SINGLE PACK -->
+                    <div class="form-group mb-3">
+                        <div class="mb-4 border-bottom pb-2">
+                            <h5 class="mb-0"> <i class="fa fa-mobile-alt"></i> Single Pack</h5>
                         </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="d-flex justify-content-between">
+                                    <div>
+                                        <p class="text-dark">Ayam</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-dark font-weight-bold">RM 11.00</p>
+                                    </div>
+                                    <div class="input-group w-auto justify-content-end align-items-center">
+                                        <input type="button" value="-" class="button-minus border rounded-circle  icon-shape icon-sm mx-1 " data-field="quantity">
+                                        <input type="number" step="1" min="0" max="10" value="0" name="p_ayam" class="quantity-field border-0 text-center w-25">
+                                        <input type="button" value="+" class="button-plus border rounded-circle icon-shape icon-sm " data-field="quantity">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="d-flex justify-content-between">
+                                    <div>
+                                        <p class="text-dark">Kambing</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-dark font-weight-bold">RM 17.00</p>
+                                    </div>
+                                    <div class="input-group w-auto justify-content-end align-items-center">
+                                        <input type="button" value="-" class="button-minus border rounded-circle  icon-shape icon-sm mx-1 " data-field="quantity">
+                                        <input type="number" step="1" min="0" max="10" value="0" name="p_kambing" class="quantity-field border-0 text-center w-25">
+                                        <input type="button" value="+" class="button-plus border rounded-circle icon-shape icon-sm " data-field="quantity">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="d-flex justify-content-between">
+                                    <div>
+                                        <p class="text-dark">Campur</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-dark font-weight-bold">RM 20.00</p>
+                                    </div>
+                                    <div class="input-group w-auto justify-content-end align-items-center">
+                                        <input type="button" value="-" class="button-minus border rounded-circle  icon-shape icon-sm mx-1 " data-field="quantity">
+                                        <input type="number" step="1" min="0" max="10" value="0" name="p_campur" class="quantity-field border-0 text-center w-25">
+                                        <input type="button" value="+" class="button-plus border rounded-circle icon-shape icon-sm " data-field="quantity">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
                     </div>
 
-                    <div class="container">
-  <div class="row mb-8 justify-content-center ">
-<div class="col-md-6 col-12">
-   <div class="mb-4 border-bottom pb-2">
-      <h4 class="mb-0">Disposition & Amenities</h4>
-   </div>
-<div class="row">
-<div class="col-12">
-   <div class="d-flex justify-content-between">
-      <div>
-         <p class="text-dark">Guests</p>
-      </div>
-      <div class="input-group w-auto justify-content-end align-items-center">
-         <input type="button" value="-" class="button-minus border rounded-circle  icon-shape icon-sm mx-1 " data-field="quantity">
-         <input type="number" step="1" max="10" value="1" name="quantity" class="quantity-field border-0 text-center w-25">
-         <input type="button" value="+" class="button-plus border rounded-circle icon-shape icon-sm " data-field="quantity">
-      </div>
-   </div>
-</div>
-<div class="col-12">
-   <div class="d-flex justify-content-between">
-      <div>
-         <p class="text-dark">Bedroom</p>
-      </div>
-      <div class="input-group w-auto justify-content-end align-items-center">
-         <input type="button" value="-" class="button-minus border rounded-circle  icon-shape icon-sm mx-1 " data-field="quantity">
-         <input type="number" step="1" max="10" value="1" name="quantity" class="quantity-field border-0 text-center w-25">
-         <input type="button" value="+" class="button-plus border rounded-circle icon-shape icon-sm lh-0" data-field="quantity">
-      </div>
-   </div>
-</div>
-<div class="col-12">
-   <div class="d-flex justify-content-between">
-      <div>
-         <p class="text-dark">Bathroom</p>
-      </div>
-      <div class="input-group w-auto justify-content-end align-items-center">
-         <input type="button" value="-" class="button-minus border rounded-circle  icon-shape icon-sm mx-1 lh-0" data-field="quantity">
-         <input type="number" step="1" max="10" value="1" name="quantity" class="quantity-field border-0 text-center w-25">
-         <input type="button" value="+" class="button-plus border rounded-circle icon-shape icon-sm lh-0" data-field="quantity">
-      </div>
-   </div>
-</div>
-</div>
-    </div>
-  </div>
-
-                    <div class="form-group  col-lg-4">
-                        <label for="" class="label-default"> <i class="fa fa-mobile-alt"></i>Dulang</label>
-                        <div class="">
-                            <span class="minus">-</span>
-                            <input type="text" name="dulang" value="1"/>
-                            <span class="plus">+</span>
+                    <!-- SET DULANG  -->
+                    <div class="form-group mb-3">
+                        <div class="mb-4 border-bottom pb-2">
+                            <h5 class="mb-0"> <i class="fa fa-mobile-alt"></i> Dulang</h5>
                         </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="d-flex justify-content-between">
+                                    <div>
+                                        <p class="text-dark">Ayam</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-dark font-weight-bold">RM 75.00</p>
+                                    </div>
+                                    <div class="input-group w-auto justify-content-end align-items-center">
+                                        <input type="button" value="-" class="button-minus border rounded-circle  icon-shape icon-sm mx-1 " data-field="quantity">
+                                        <input type="number" step="1" min="0" max="10" value="0" name="d_ayam" class="quantity-field border-0 text-center w-25">
+                                        <input type="button" value="+" class="button-plus border rounded-circle icon-shape icon-sm " data-field="quantity">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="d-flex justify-content-between">
+                                    <div>
+                                        <p class="text-dark">Kambing</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-dark font-weight-bold">RM 90.00</p>
+                                    </div>
+                                    <div class="input-group w-auto justify-content-end align-items-center">
+                                        <input type="button" value="-" class="button-minus border rounded-circle  icon-shape icon-sm mx-1 " data-field="quantity">
+                                        <input type="number" step="1" min="0" max="10" value="0" name="d_kambing" class="quantity-field border-0 text-center w-25">
+                                        <input type="button" value="+" class="button-plus border rounded-circle icon-shape icon-sm " data-field="quantity">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="d-flex justify-content-between">
+                                    <div>
+                                        <p class="text-dark">Campur</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-dark font-weight-bold">RM 85.00</p>
+                                    </div>
+                                    <div class="input-group w-auto justify-content-end align-items-center">
+                                        <input type="button" value="-" class="button-minus border rounded-circle  icon-shape icon-sm mx-1 " data-field="quantity">
+                                        <input type="number" step="1" min="0" max="10" value="0" name="d_campur" class="quantity-field border-0 text-center w-25">
+                                        <input type="button" value="+" class="button-plus border rounded-circle icon-shape icon-sm " data-field="quantity">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
                     </div>
+
                     <div class="row">
-                        <div class="form-group  col-lg-6">
+                        <div class="form-group mb-3 col-lg-6">
                             <label for="" class="label-default"><i class="fa fa-restroom"></i>Tarikh</label>
                             <input type="date" class="form-control box-text" name="date"
-                            mindate="tomorrow" min="<?php echo date("Y-m-d", strtotime("+3 day")); ?>" placeholder="MM/DD/YYYY" required="true">
+                            mindate="tomorrow" min="<?php echo date("Y-m-d", strtotime("+1 day")); ?>" placeholder="MM/DD/YYYY" required="true">
                         </div>
 
                         <div class="form-group mb-3 col-lg-6">
@@ -262,19 +322,39 @@
                         </div>
                     </div>
 
+                    <div class="row">
+                        <div class="form-group mb-3 col-lg-6">
+                            <label for="" class="label-default"><i class="fa fa-restroom"></i>Link waze/google maps</label>
+                            <input type="text" name="link" class="form-control box-text" placeholder="Masukan link lokasi delivery">
+                        </div>
+
+                        <div class="form-group mb-3 col-lg-6">
+                            <label for="" class="label-default"><i class="fa fa-restroom"></i>Tempat (Daerah)</label>
+                            <select name="location" id="gender" class="form-control box-text">
+                                <option value=""> Pilih lokasi tempat daerah</option>
+                                <option value="1">Kota Bharu</option>
+                                <option value="2">Kubang Kerian</option>
+                                <option value="3">Pengkalan Chepa</option>
+                                <option value="4">Peringat</option>
+                                <option value="5">Pasir Tumboh</option>
+                                <option value="6">PCB</option>
+                            </select>
+                        </div>
+                    </div>
+
                     
 
                     <div class="form-group mb-3">
                         <label for="" class="label-default"><i class="fa fa-envelope" ></i>Remark</label>
-                        <textarea type="text" name="remark" class="form-control box-text"  cols="30" rows="3" placeholder="Write your message to me"></textarea>
+                        <textarea type="text" name="remark" class="form-control box-text"  cols="30" rows="3" placeholder="Write your message to me / land mark location delivery "></textarea>
                     </div> 
 
                     <div class="text-center">
 
-                        <button class="btn btn-primary btn-user btn-block mb-3" name="submit"> 
+                        <button class="btn btn-sm btn-primary btn-user btn-block mb-3" name="submit"> 
                             <i class="fa fa-share-square"></i> Order    
                         </button>
-                        <button class="btn btn-warning btn-user btn-block mb-3" type="reset"> 
+                        <button class="btn btn-sm btn-warning btn-user btn-block mb-3" type="reset"> 
                             <i class="fa fa-sync"></i> RESET   
                         </button>
 
@@ -284,8 +364,6 @@
                             $txt_3 = 'And nothing special for links: https://example.com';
                             $msg= $txt_1.$txt_2.$txt_3."%0A";
                         ?>
-                            <button class="btn btn-success btn-user btn-block mb-3 ">..
-                            </button>
 
                     </div>
                 </form>
@@ -298,7 +376,7 @@
         <footer class="sticky-footer">
                     <div class="container my-auto mb-2">
 		  		<div class="copyright text-center text-light my-auto">
-					<span>Copyright &copy; WASAP.MY (2017) </span>
+					<span>Copyright &copy; Iman Catering (2022) </span>
 		  		</div>
 			</div>
 	  	</footer>
