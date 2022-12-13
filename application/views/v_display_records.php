@@ -13,14 +13,14 @@
 </head>
 
 <body>
-  <table width="600" cellspacing="5" cellpadding="5">
-    <tr style="background:#CCC">
-      <th>Sr No</th>
+  <table width="100%" cellspacing="5" cellpadding="5">
+    <tr style="background:red; color:white;">
+      <th>No</th>
       <th>First_name</th>
       <th>email</th>
       <th>password</th>
       <th>gender</th>
-      <th>date createdd</th>
+      <th>date created</th>
       <th>phonee</th>
     </tr>
     <?php
@@ -34,8 +34,6 @@
       echo "<td>" . $row->gender . "</td>";
       echo "<td>" . $row->created_date . "</td>";
       echo "<td>" . $row->phone . "</td>";
-
-
       echo "</tr>";
     }
     ?>

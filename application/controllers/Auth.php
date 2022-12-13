@@ -1,6 +1,27 @@
 <?php 
     class Auth extends CI_Controller
     {
+        public function __construct()
+        {
+            /*call CodeIgniter's default Constructor*/
+            parent::__construct();
+
+            /*load database libray manually*/
+            $this->load->database();
+
+            /*load Model*/
+            $this->load->model('Auth_model');
+        }
+        
+            /*Display DATA*/
+            public function displaydata()
+        {
+            $result['data']=$this->Auth_model->get_display_records();
+            $this->load->view('v_display_records',$result);
+        }
+        
+
+        // FORM LOGIN & REGISTER
         public function logout ()
         {
             unset ($_SESSION);
