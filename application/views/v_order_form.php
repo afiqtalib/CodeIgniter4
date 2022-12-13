@@ -24,9 +24,8 @@
             margin: 0;
             width: 100%;
             /* assets/image/bg-wasapmy.png */
-
             /* background-color: #F5F5F7; */
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
             color: rgb(79, 79, 79);
             -webkit-animation: name 35s infinite;
         }
@@ -72,9 +71,9 @@
             font-family: 'Inter', sans-serif;
             border-radius: 20px;
             box-shadow: 0 4px 5px -1px rgba(0, 0, 0, 0.4), 0 2px 3px -1px rgba(0, 0, 0, 0.4);
-            width: 40%;
+            width: 90%;
             margin: 5% auto;
-            padding: 10px;
+            padding: 15px;
         }
 
         .box-text{
@@ -154,24 +153,21 @@
                     //  foreach ($_POST as $selected => $value) {
                         // echo "$selected = $value";
                         // echo "$value";     
-                    // echo '<script>window.location.replace("https://wasap.my/601156759880/Assalamualaikum\r\n'.$value.'")</script>';
                     // }
                     // $name=$_POST['name'];
                     // $phone=$_POST['phone']; 
                     
                     if((isset($_POST['name'])) && (isset($_POST['phone'])) && (isset($_POST['p_ayam'])) && (isset($_POST['p_kambing'])) && (isset($_POST['remark'])) && (isset($_POST['link'])))  {
-
+                        // Prefilled Text in WhatsApp
                         $txt_1 = 'Name: '.$_POST['name']."%0A";
                         $txt_2 = 'Phone: '.$_POST['phone']."%0D%0A";
                         $txt_3 = 'Ayam PAX: '.$_POST['p_ayam']."%0D%0A";
                         $txt_4 = 'Kambing PAX: '.$_POST['p_kambing']."%0D%0A";
                         $txt_5 = 'Message: '.$_POST['remark']."%0D%0A";
                         $txt_6 = 'Link Location: '.$_POST['link']."%0D%0A";
-                        // $txt_3 = 'And nothihahahahinks: https://example.com';
 
                         $msg = "Asslamulaikum Iman Catering" .'%0D%0A %0D%0A'. $txt_1.$txt_2.$txt_3.$txt_4.$txt_5.$txt_6. "Thank You";
                     }
-                    // $text_msg= $name.$phone.$message;
                     echo '<script>window.location.replace("https://api.whatsapp.com/send?phone=60199972514&text='.$msg.'")</script>';
                 }
                 ?>
