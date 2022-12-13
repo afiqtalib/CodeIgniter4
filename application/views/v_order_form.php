@@ -364,7 +364,6 @@
                             $txt_3 = 'And nothing special for links: https://example.com';
                             $msg= $txt_1.$txt_2.$txt_3."%0A";
                         ?>
-
                     </div>
                 </form>
 
