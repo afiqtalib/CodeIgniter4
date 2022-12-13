@@ -345,7 +345,7 @@
                         <textarea type="text" name="remark" class="form-control box-text"  cols="30" rows="3" placeholder="Write your message to me / land mark location delivery "></textarea>
                     </div> 
 
-                    <div class="text-center d-flex justify-content-lg-around">
+                    <div class="text-center justify-content-lg-around">
 
                         <button class="btn btn-sm btn-primary btn-user btn-block mb-3" name="submit"> 
                             <i class="fa fa-share-square"></i> Order    
