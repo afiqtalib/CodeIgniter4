@@ -182,7 +182,7 @@
                 
                 <form class="login-container validate-form" action="" method="POST">
                     <div class="form-group mb-3">
-                        <label for="" class="label-default"><i class="fa fa-hand-point-right"></i>Name</label>
+                        <label for="" class="label-default"><i class="fa fa-address-card"></i>Name</label>
                         <input type="text" name="name" class="form-control box-text" placeholder="Enter your name">
                     </div>
 
@@ -194,7 +194,7 @@
                     <!-- SINGLE PACK -->
                     <div class="form-group mb-3">
                         <div class="mb-4 border-bottom pb-2">
-                            <h5 class="mb-0"> <i class="fa fa-mobile-alt"></i> Single Pack</h5>
+                            <h5 class="mb-0"> <i class="fa fa-concierge-bell"></i> Single Pack</h5>
                         </div>
                         <div class="row">
                             <div class="col-lg-12">
@@ -249,7 +249,7 @@
                     <!-- SET DULANG  -->
                     <div class="form-group mb-3">
                         <div class="mb-4 border-bottom pb-2">
-                            <h5 class="mb-0"> <i class="fa fa-mobile-alt"></i> Dulang</h5>
+                            <h5 class="mb-0"> <i class="fa fa-utensils"></i> Dulang</h5>
                         </div>
                         <div class="row">
                             <div class="col-lg-12">
@@ -303,13 +303,13 @@
 
                     <div class="row">
                         <div class="form-group mb-3 col-lg-6">
-                            <label for="" class="label-default"><i class="fa fa-restroom"></i>Tarikh</label>
+                            <label for="" class="label-default"><i class="fa fa-calendar"></i>Tarikh</label>
                             <input type="date" class="form-control box-text" name="date"
                             mindate="tomorrow" min="<?php echo date("Y-m-d", strtotime("+1 day")); ?>" placeholder="MM/DD/YYYY" required="true">
                         </div>
 
                         <div class="form-group mb-3 col-lg-6">
-                            <label for="" class="label-default"><i class="fa fa-restroom"></i>Masa</label>
+                            <label for="" class="label-default"><i class="fa fa-clock"></i>Masa</label>
                             <select name="time" id="gender" class="form-control box-text">
                                 <option value="">Pilih masa delivery</option>
                                 <option value="1">12:00 PM</option>
@@ -324,12 +324,12 @@
 
                     <div class="row">
                         <div class="form-group mb-3 col-lg-6">
-                            <label for="" class="label-default"><i class="fa fa-restroom"></i>Link waze/google maps</label>
+                            <label for="" class="label-default"><i class="fa fa-map-marked-alt"></i>Link waze/google maps</label>
                             <input type="text" name="link" class="form-control box-text" placeholder="Masukan link lokasi delivery">
                         </div>
 
                         <div class="form-group mb-3 col-lg-6">
-                            <label for="" class="label-default"><i class="fa fa-restroom"></i>Tempat (Daerah)</label>
+                            <label for="" class="label-default"><i class="fa fa-location-arrow"></i>Tempat (Daerah)</label>
                             <select name="location" id="gender" class="form-control box-text">
                                 <option value=""> Pilih lokasi tempat daerah</option>
                                 <option value="1">Kota Bharu</option>
