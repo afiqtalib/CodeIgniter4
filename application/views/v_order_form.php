@@ -186,21 +186,52 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-2">
-                                        <div class="input-group">
-                                    <span class="input-group-btn">
-                                        <button type="button" class="quantity-left-minus btn btn-danger btn-number"  data-type="minus" data-field="">
-                                          <span class="glyphicon glyphicon-minus"></span>
-                                        </button>
-                                    </span>
-                                    <input type="text" id="quantity" name="quantity" class="form-control input-number" value="10" min="1" max="100">
-                                    <span class="input-group-btn">
-                                        <button type="button" class="quantity-right-plus btn btn-success btn-number" data-type="plus" data-field="">
-                                            <span class="glyphicon glyphicon-plus"></span>
-                                        </button>
-                                    </span>
-                                </div>
-                        </div>
+                    <div class="container">
+  <div class="row mb-8 justify-content-center ">
+<div class="col-md-6 col-12">
+   <div class="mb-4 border-bottom pb-2">
+      <h4 class="mb-0">Disposition & Amenities</h4>
+   </div>
+<div class="row">
+<div class="col-12">
+   <div class="d-flex justify-content-between">
+      <div>
+         <p class="text-dark">Guests</p>
+      </div>
+      <div class="input-group w-auto justify-content-end align-items-center">
+         <input type="button" value="-" class="button-minus border rounded-circle  icon-shape icon-sm mx-1 " data-field="quantity">
+         <input type="number" step="1" max="10" value="1" name="quantity" class="quantity-field border-0 text-center w-25">
+         <input type="button" value="+" class="button-plus border rounded-circle icon-shape icon-sm " data-field="quantity">
+      </div>
+   </div>
+</div>
+<div class="col-12">
+   <div class="d-flex justify-content-between">
+      <div>
+         <p class="text-dark">Bedroom</p>
+      </div>
+      <div class="input-group w-auto justify-content-end align-items-center">
+         <input type="button" value="-" class="button-minus border rounded-circle  icon-shape icon-sm mx-1 " data-field="quantity">
+         <input type="number" step="1" max="10" value="1" name="quantity" class="quantity-field border-0 text-center w-25">
+         <input type="button" value="+" class="button-plus border rounded-circle icon-shape icon-sm lh-0" data-field="quantity">
+      </div>
+   </div>
+</div>
+<div class="col-12">
+   <div class="d-flex justify-content-between">
+      <div>
+         <p class="text-dark">Bathroom</p>
+      </div>
+      <div class="input-group w-auto justify-content-end align-items-center">
+         <input type="button" value="-" class="button-minus border rounded-circle  icon-shape icon-sm mx-1 lh-0" data-field="quantity">
+         <input type="number" step="1" max="10" value="1" name="quantity" class="quantity-field border-0 text-center w-25">
+         <input type="button" value="+" class="button-plus border rounded-circle icon-shape icon-sm lh-0" data-field="quantity">
+      </div>
+   </div>
+</div>
+</div>
+    </div>
+  </div>
 
                     <div class="form-group  col-lg-4">
                         <label for="" class="label-default"> <i class="fa fa-mobile-alt"></i>Dulang</label>
