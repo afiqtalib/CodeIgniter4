@@ -349,13 +349,13 @@
                         <textarea type="text" name="remark" class="form-control box-text"  cols="30" rows="3" placeholder="Write your message to me / land mark location delivery "></textarea>
                     </div> 
 
-                    <div class="text-center">
+                    <div class="text-center d-flex justify-content-lg-around">
 
                         <button class="btn btn-sm btn-primary btn-user btn-block mb-3" name="submit"> 
                             <i class="fa fa-share-square"></i> Order    
                         </button>
                         <button class="btn btn-sm btn-warning btn-user btn-block mb-3" type="reset"> 
-                            <i class="fa fa-sync"></i> RESET   
+                            <i class="fa fa-sync"></i> Cancel   
                         </button>
 
                         <?php
