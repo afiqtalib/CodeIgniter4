@@ -370,7 +370,7 @@
         <!-- Footer -->
         <footer class="sticky-footer">
                     <div class="container my-auto mb-2">
-		  		<div class="copyright text-center text-light my-auto">
+		  		<div class="copyright text-center text-light my-auto fw-bold">
 					<span>Copyright &copy; Iman Catering (2022) </span>
 		  		</div>
 			</div>
