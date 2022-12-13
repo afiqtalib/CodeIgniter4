@@ -38,10 +38,10 @@
             background-color: #F5F5F7;
             font-family: Verdana, Geneva, Tahoma, sans-serif;
             color: rgb(79, 79, 79);
-            -webkit-animation: name 35s infinite;
+            /* -webkit-animation: name 35s infinite; */
         }
         
-        @-webkit-keyframes name {
+        /* @-webkit-keyframes name {
             0% {
                 background-color: #F5F5F7;
             }
@@ -60,7 +60,7 @@
             100% {
                 background-color: #F5F5F7;
             }
-        }   
+        }    */
 
         /* .register
         {
