@@ -17,7 +17,7 @@ class Order extends CI_Controller
                 $this->form_validation->set_rules('time','Masa','required');
                 $this->form_validation->set_rules('link','Link Google Maps','required');
                 $this->form_validation->set_rules('location','Location','required');
-                $this->form_validation->set_rules('remark','Location','required');
+                $this->form_validation->set_rules('remark','Remark','required');
 
                 // if form validation
                 if ($this->form_validation->run() == TRUE) {

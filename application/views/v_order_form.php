@@ -178,12 +178,12 @@
                 
                 <form class="login-container validate-form" action="" method="POST">
                     <div class="form-group mb-3">
-                        <label for="" class="label-default"><i class="fa fa-address-card"></i>Name</label>
+                        <label for="" class="label-default px-2"><i class="fa fa-address-card"></i>Nama</label>
                         <input type="text" name="name" class="form-control box-text" placeholder="Enter your name">
                     </div>
 
                     <div class="form-group mb-3">
-                        <label for="" class="label-default"> <i class="fa fa-mobile-alt"></i>Phone Number</label>
+                        <label for="" class="label-default px-2"> <i class="fa fa-mobile-alt"></i>No Telefon</label>
                         <input type="text" name="phone" class="form-control box-text" placeholder="0123456789">
                     </div>
 
@@ -299,13 +299,13 @@
 
                     <div class="row">
                         <div class="form-group mb-3 col-lg-6">
-                            <label for="" class="label-default"><i class="fa fa-calendar"></i>Tarikh</label>
+                            <label for="" class="label-default px-2"><i class="fa fa-calendar"></i>Tarikh</label>
                             <input type="date" class="form-control box-text" name="date"
-                            mindate="tomorrow" min="<?php echo date("Y-m-d", strtotime("+1 day")); ?>" placeholder="MM/DD/YYYY" required="true">
+                            mindate="tomorrow" min="<?php echo date("Y-m-d", strtotime("+1 day")); ?>" placeholder="MM/DD/YYYY">
                         </div>
 
                         <div class="form-group mb-3 col-lg-6">
-                            <label for="" class="label-default"><i class="fa fa-clock"></i>Masa</label>
+                            <label for="" class="label-default px-2"><i class="fa fa-clock"></i>Masa</label>
                             <select name="time" id="gender" class="form-control box-text">
                                 <option value="">Pilih masa delivery</option>
                                 <option value="1">12:00 PM</option>
@@ -320,12 +320,12 @@
 
                     <div class="row">
                         <div class="form-group mb-3 col-lg-6">
-                            <label for="" class="label-default"><i class="fa fa-map-marked-alt"></i>Link waze/google maps</label>
+                            <label for="" class="label-default px-2"><i class="fa fa-map-marked-alt"></i>Link waze/google maps</label>
                             <input type="text" name="link" class="form-control box-text" placeholder="Masukan link lokasi delivery">
                         </div>
 
                         <div class="form-group mb-3 col-lg-6">
-                            <label for="" class="label-default"><i class="fa fa-location-arrow"></i>Tempat (Daerah)</label>
+                            <label for="" class="label-default px-2"><i class="fa fa-location-arrow"></i>Tempat (Daerah)</label>
                             <select name="location" id="gender" class="form-control box-text">
                                 <option value=""> Pilih lokasi tempat daerah</option>
                                 <option value="1">Kota Bharu</option>
@@ -341,7 +341,7 @@
                     
 
                     <div class="form-group mb-3">
-                        <label for="" class="label-default"><i class="fa fa-envelope" ></i>Remark</label>
+                        <label for="" class="label-default px-2"><i class="fa fa-envelope" ></i>Remark</label>
                         <textarea type="text" name="remark" class="form-control box-text"  cols="30" rows="3" placeholder="Write your message to me / land mark location delivery "></textarea>
                     </div> 
 
