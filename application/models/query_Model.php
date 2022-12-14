@@ -8,13 +8,13 @@ class query_Model extends CI_Model
     }
 
     public function nakOrder() {
-        // $this->db->select('*');
-        // $this->db->from('orders');
-        // $this->db->order_by('date', 'desc');    
-        // // $this->db->where('DATE(date) >=', $from_date);
-        // // $this->db->where('DATE(date) >=', $to_date);
+        $this->db->select('*');
+        $this->db->from('orders');
+        $this->db->order_by('date', 'desc');    
+        // $this->db->where('DATE(date) >=', $from_date);
+        // $this->db->where('DATE(date) >=', $to_date);
 
-        $query = $this->db->get("orders");
+        $query = $this->db->get();
         $result = $query->result_array();
         return $result;
     }

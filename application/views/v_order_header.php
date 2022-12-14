@@ -7,14 +7,14 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
 
 
-<div class="container">
+<div class="bg-opacity-10" style="background-color: #F0F8FF;">
   <nav class="navbar">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">
         <img src="<?php echo base_url('assets/image/iman-catering.png');?>" alt="Logo" width="10%" class="d-inline-block align-text-top">
       </a>
       <a class="ms-4" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample"> 
-        <i class="fa fa-bars fa-2x" style="color: red;"></i>
+        <i class="fa fa-bars fa-lg" style="color: #660000;"></i>
       </a>
     </div>
   </nav>
