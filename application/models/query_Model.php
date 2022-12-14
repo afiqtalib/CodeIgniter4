@@ -7,4 +7,22 @@ class query_Model extends CI_Model
         $this->db->update('orders', $table);
     }
 
+    public function nakOrder() {
+        // $this->db->select('*');
+        // $this->db->from('orders');
+        // $this->db->order_by('date', 'desc');    
+        // // $this->db->where('DATE(date) >=', $from_date);
+        // // $this->db->where('DATE(date) >=', $to_date);
+
+        $query = $this->db->get("orders");
+        $result = $query->result_array();
+        return $result;
+    }
+
+    public function getDataOrders()
+    {
+        // get table in db
+        $query = $this->db->get("orders");
+        return $query->result_array();
+    }
 }

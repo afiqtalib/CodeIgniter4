@@ -1,3 +1,5 @@
+<?php $this->load->view('v_order_header.php');?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -27,10 +29,10 @@
             /* background-color: #F5F5F7; */
             /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
             color: rgb(79, 79, 79);
-            /* -webkit-animation: name 35s infinite; */
+            -webkit-animation: name 35s infinite;
         }
         
-        /* @-webkit-keyframes name {
+        @-webkit-keyframes name {
             0% {
                 background-color: #ff90b4;
             }
@@ -49,7 +51,7 @@
             100% {
                 background-color: #fa93b1;
             }
-        }    */
+        }   
 
         /* .register
         {
@@ -377,7 +379,7 @@
 	  	</footer>
 		<!-- End of Footer -->
     
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script> -->
   </body>
   
 </html>

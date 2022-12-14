@@ -8,7 +8,7 @@
         // }
 
         // get data to display_records
-        function get_display_records()
+        public function get_display_records()
         {
             // get table in db
             $query = $this->db->get("users");
