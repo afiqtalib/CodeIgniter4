@@ -56,7 +56,13 @@
                                     echo "<td style='width:1%'>".$no++."</td>";
                                     echo "<td>".$data['name']."</td>";
                                     echo "<td>".$data['phone']."</td>";
-                                    echo "<td> Ayam ".$data['p_ayam'] ."</td>";
+                                    echo "<td>"; 
+                                    if (( ($data['p_ayam']) && ($data['p_kambing']) && ($data['p_campur']) ) > 0) {
+
+                                    }
+                                    echo "Single Pax - Ayam ".$data['p_ayam'] . "<br> Single Pax - Kambing ".$data['p_kambing'] ."<br> Single Pax - Campur ".$data['p_campur'];
+
+                                    echo "</td>";
                                     echo "<td>".$data['date']."</td>";
                                     echo "<td>".$data['time']."</td>";
                                     echo "<td>".$data['location']."</td>";
@@ -64,7 +70,7 @@
                                     echo "<td>".$data['remark']."</td>";
                                     echo "<td>"."<a href='#' class='btn btn-sm btn-warning'>Update</a>"."</td>";
                                 echo "</tr>";
-                                }  
+                                } 
                             ?>
                         </tbody>
                     </table>
@@ -74,7 +80,37 @@
                 <a href="#" class="btn btn-sm btn-primary">button</a>
             </div>
             <div class="card-footer text-muted">
-                TOTAL SALES =
+                <?php
+                    echo "SINGLE PAX <br>"; 
+
+                    $totAyam = 0;
+                    $total_pAyam=$data['p_ayam']; 
+                    $totAyam += $total_pAyam;
+                    echo "Ayam : ". $totAyam;
+
+                    echo "<br>"; 
+                    // echo str_repeat('&nbsp;', 8);                    
+                    
+                    $totKambing = 0;
+                    $total_pKambing=$data['p_kambing']; 
+                    $totKambing += $total_pKambing;
+                    echo "Kambing : ". $totKambing;
+                
+                ?> 
+                <br>
+                <?php 
+                    // $totAyam = 0;
+                    $total_pAyam=$data['p_ayam']; 
+                    $totPriceAyam = $totAyam*11.00;
+
+                    $total_pKambing=$data['p_kambing']; 
+                    $totPriceKambing = $totKambing*17.00;
+
+                    $totalSales = $totPriceAyam + $totPriceKambing;
+
+                    echo "TOTAL SALES = : RM". $totalSales;
+                    
+                ?>
             </div>
         </div>
         
