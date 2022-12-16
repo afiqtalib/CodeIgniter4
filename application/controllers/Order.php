@@ -56,6 +56,11 @@ class Order extends CI_Controller
         parent::__construct();
         date_default_timezone_set("Asia/Kuala_Lumpur");
 
+        $this->load->helper('url');
+   
+        // Load Pagination library 
+        $this->load->library('pagination');
+
         /*load database libray manually*/
         $this->load->database();
 
@@ -64,7 +69,10 @@ class Order extends CI_Controller
     }
 
     public function report() {
-        $data['result']=$this->query_Model->nakOrder();
+
+        // All records count      
+        $users_record=$this->query_Model->nakOrder();
+        $data['result'] = $users_record; 
         $this->load->view('v_order_report',$data);
     }
 

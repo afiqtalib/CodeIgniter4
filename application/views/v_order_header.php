@@ -8,30 +8,30 @@
 
 
 <div class="bg-opacity-10" style="background-color: #F0F8FF;">
-  <nav class="navbar">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">
-        <img src="<?php echo base_url('assets/image/iman-catering.png');?>" alt="Logo" width="10%" class="d-inline-block align-text-top">
-      </a>
-      <a class="ms-4" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample"> 
-        <i class="fa fa-bars fa-lg" style="color: #660000;"></i>
-      </a>
-    </div>
-  </nav>
+	<nav class="navbar">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="#">
+				<img src="<?php echo base_url('assets/image/iman-catering.png');?>" alt="Logo" width="10%" class="d-inline-block align-text-top">
+			</a>
+			<a class="" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample"> 
+				<i class="fa fa-bars fa-lg" style="color: #660000;"></i>
+			</a>
+		</div>
+	</nav>
 
-  <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-    <div class="offcanvas-header">
-      <img src="<?php echo base_url('assets/image/iman-catering.png');?>" alt="Logo" width="30%" class="d-inline-block align-text-top">
-      <h5 class="offcanvas-title" id="offcanvasExampleLabel">Iman Catering</h5>
-      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </div>
-    <div class="offcanvas-body">
-      <div>
-        sidebar
-        <li><a href="<?php echo base_url()."index.php/order"?>"><span class="nav-label">Order</span></a></li>
-        <li><a href="<?php echo base_url()."index.php/order/report"?>"><span class="nav-label">Report</span></a></li>                	
-        <a href="<?php echo base_url()."index.php/order/updateData"?>"><span class="nav-label btn btn-sm btn-outline-primary mt-3">Update</span></a>     	
-      </div>
-    </div>
-  </div>
+	<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+		<div class="offcanvas-header">
+			<img src="<?php echo base_url('assets/image/iman-catering.png');?>" alt="Logo" width="30%" class="d-inline-block align-text-top">
+			<h5 class="offcanvas-title" id="offcanvasExampleLabel">Iman Catering</h5>
+			<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+		</div>
+		<div class="offcanvas-body">
+			<div>
+				sidebar
+				<li><a href="<?php echo base_url()."index.php/order"?>"><span class="nav-label">Order</span></a></li>
+				<li><a href="<?php echo base_url()."index.php/order/report"?>"><span class="nav-label">Report</span></a></li>                	
+				<a href="<?php echo base_url()."index.php/order/updateData"?>"><span class="nav-label btn btn-sm btn-outline-primary mt-3">Update</span></a>     	
+			</div>
+		</div>
+	</div>
 </div>

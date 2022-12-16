@@ -302,12 +302,14 @@
                     <div class="row">
                         <div class="form-group mb-3 col-lg-6">
                             <label for="" class="label-default px-2"><i class="fa fa-calendar"></i>Tarikh</label>
+                            <p><small>Tempahan awal sehari</small></p>
                             <input type="date" class="form-control box-text" name="date"
                             mindate="tomorrow" min="<?php echo date("Y-m-d", strtotime("+1 day")); ?>" placeholder="MM/DD/YYYY">
                         </div>
 
                         <div class="form-group mb-3 col-lg-6">
                             <label for="" class="label-default px-2"><i class="fa fa-clock"></i>Masa</label>
+                            <p><small>Delivery time (12:00PM - 6:00PM)</small></p>
                             <select name="time" id="gender" class="form-control box-text">
                                 <option value="">Pilih masa delivery</option>
                                 <option value="1">12:00 PM</option>
@@ -322,12 +324,12 @@
 
                     <div class="row">
                         <div class="form-group mb-3 col-lg-6">
-                            <label for="" class="label-default px-2"><i class="fa fa-map-marked-alt"></i>Link waze/google maps</label>
+                            <label for="" class="label-default px-2"><i class="fa fa-map-marker-alt"></i>Link waze/google maps</label>
                             <input type="text" name="link" class="form-control box-text" placeholder="Masukan link lokasi delivery">
                         </div>
 
                         <div class="form-group mb-3 col-lg-6">
-                            <label for="" class="label-default px-2"><i class="fa fa-location-arrow"></i>Tempat (Daerah)</label>
+                            <label for="" class="label-default px-2"><i class="fa fa-location-arrow"></i>Kawasan Penghantaran</label>
                             <select name="location" id="gender" class="form-control box-text">
                                 <option value=""> Pilih lokasi tempat daerah</option>
                                 <option value="1">Kota Bharu</option>

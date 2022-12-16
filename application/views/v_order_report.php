@@ -8,6 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Report | Iman Catering</title>
 </head>
+<!-- CDN DATATABLE -->
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.11.5/datatables.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.11.5/datatables.min.js"></script>
 
 <style>
     body {
@@ -19,12 +23,9 @@
 </style>
 
 <body>
-
-
     <div class="container mt-5">
-        <div class="card">
+        <div class="card shadow p-3 mb-5 bg-body rounded">
             <div class="">
-                
             </div>
             <div class="card-body">
                 <h5 class="card-title">Orders</h5>
@@ -38,18 +39,28 @@
                                 <th> No. </th>
                                 <th> Name </th>
                                 <th> Phone </th>
-                                <th> Order </th>
-                                <th> Tarikh </th>
+                                <th style="width:18%"> Order </th>
+                                <th style="width:10%"> Tarikh </th>
                                 <th> Masa </th>
                                 <th> Tempat </th>
                                 <th> Location </th>
                                 <th> Remark </th>
-                                <th> Action </th>
+                                <th style="width:2%">`</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php 
                                 $no = 1;
+
+                                // calculation 
+                                $count_total_pAyam = 0;
+                                $count_total_pKambing = 0;
+                                $count_total_pCampur = 0;
+
+                                $count_total_dAyam = 0;
+                                $count_total_dKambing = 0;
+                                $count_total_dCampur = 0;
+
                                 foreach($result as $data)
                                 {                            
                                 echo "<tr> ";
@@ -57,10 +68,29 @@
                                     echo "<td>".$data['name']."</td>";
                                     echo "<td>".$data['phone']."</td>";
                                     echo "<td>"; 
-                                    if (( ($data['p_ayam']) && ($data['p_kambing']) && ($data['p_campur']) ) > 0) {
-
+                                    if ($data['p_ayam']>0) {
+                                        echo "Single Pax - Ayam ".$data['p_ayam'];
                                     }
-                                    echo "Single Pax - Ayam ".$data['p_ayam'] . "<br> Single Pax - Kambing ".$data['p_kambing'] ."<br> Single Pax - Campur ".$data['p_campur'];
+                                    if ($data['p_kambing']>0) {
+                                        echo "<br> Single Pax - Kambing ".$data['p_kambing'];
+                                    }
+                                    if ($data['p_campur']>0) {
+                                        echo "<br> Single Pax - Campur ".$data['p_campur'];
+                                    }
+                                    if ($data['d_ayam']>0) {
+                                        echo "<br> Dulang - Ayam ".$data['d_ayam'];
+                                    }
+                                    if ($data['d_kambing']>0) {
+                                        echo "<br> Dulang - Kambing ".$data['d_kambing'];
+                                    }
+                                    if ($data['d_campur']>0) {
+                                        echo "<br> Dulang - Campur ".$data['d_campur'];
+                                    }
+
+                                    // if ( isset ($data['p_ayam']) || $data['p_kambing'] || $data['p_campur']  == '0') {
+                                    //     echo "Single Pax - Ayam ".$data['p_ayam'] . "<br> Single Pax - Kambing ".$data['p_kambing'] ."<br> Single Pax - Campur ".$data['p_campur'];
+                                    // }
+                                    // echo "Single Pax - Ayam ".$data['p_ayam'] . "<br> Single Pax - Kambing ".$data['p_kambing'] ."<br> Single Pax - Campur ".$data['p_campur'];
 
                                     echo "</td>";
                                     echo "<td>".$data['date']."</td>";
@@ -68,8 +98,27 @@
                                     echo "<td>".$data['location']."</td>";
                                     echo "<td> <a target='_blank' href='".$data['link']."'> <i class='fas fa-map-marked-alt fa-2x' style='color:#007FFF;'></i> </a> </td>";
                                     echo "<td>".$data['remark']."</td>";
-                                    echo "<td>"."<a href='#' class='btn btn-sm btn-warning'>Update</a>"."</td>";
+                                    echo "<td>"."<i class='fas fa-edit fa-lg text-warning'></i>"."</td>";
                                 echo "</tr>";
+            
+                                $total_pAyam=$data['p_ayam']; 
+                                $count_total_pAyam += $total_pAyam;
+
+                                $total_pKambing=$data['p_kambing']; 
+                                $count_total_pKambing += $total_pKambing;
+
+                                $total_pCampur=$data['p_campur']; 
+                                $count_total_pCampur += $total_pCampur;
+
+                                // DULANG
+                                $total_dAyam=$data['d_ayam']; 
+                                $count_total_dAyam += $total_dAyam;
+
+                                $total_dKambing=$data['d_kambing']; 
+                                $count_total_dKambing += $total_dKambing;
+
+                                $total_dCampur=$data['d_campur']; 
+                                $count_total_dCampur += $total_dCampur;
                                 } 
                             ?>
                         </tbody>
@@ -77,40 +126,66 @@
                 </div>
                 <!-- END TABLE ORDERS -->
 
-                <a href="#" class="btn btn-sm btn-primary">button</a>
+                <button type="button" class="btn btn-primary"
+                    style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+                    Custom button
+                </button>
             </div>
-            <div class="card-footer text-muted">
-                <?php
-                    echo "SINGLE PAX <br>"; 
+            <div class="card-footer fw-bold">
+                <div class="row px-4">
+                    <div class="col-sm-3">
+                        <!-- <ul class="">
+                            <h5>SINGLE PAX</h5>
+                            <li class=" d-flex justify-content-between align-items-center">
+                                Ayam
+                                <span class="badge bg-primary rounded-pill"><?php echo $count_total_pAyam ?></span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Kambing
+                                <span class="badge bg-primary rounded-pill"><?php echo $count_total_pKambing ?></span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Campur
+                                <span class="badge bg-primary rounded-pill"><?php echo $count_total_pCampur?></span>
+                            </li>
+                        </ul> -->
+                        
+                        <?php
+                            // echo str_repeat('&nbsp;', 8);
+                            echo "SINGLE PAX <br>";
+                            echo "Ayam : ". $count_total_pAyam;
+                            echo "<br>"; 
+                            echo "Kambing : ". $count_total_pKambing;
+                            echo "<br>"; 
+                            echo "Campur : ". $count_total_pCampur;
+                        ?> 
+                    </div>
+                    <div class="col-sm-3">
+                        <?php
+                            echo "DULANG <br>";
+                            echo "Ayam : ". $count_total_dAyam;
+                            echo "<br>"; 
+                            echo "Kambing : ". $count_total_dKambing;
+                            echo "<br>"; 
+                            echo "Campur : ". $count_total_dCampur;
+                        ?> 
+                    </div>
+                    <div class="col-sm-6 text-success">
+                        <?php 
+                            $totPriceAyam = $count_total_pAyam*11.00;
+                            $totPriceKambing = $count_total_pKambing*17.00;
+                            $totPriceCampur = $count_total_pCampur*20.00;
 
-                    $totAyam = 0;
-                    $total_pAyam=$data['p_ayam']; 
-                    $totAyam += $total_pAyam;
-                    echo "Ayam : ". $totAyam;
+                            $totPricedAyam = $count_total_dAyam*75.00;
+                            $totPricedKambing = $count_total_dKambing*90.00;
+                            $totPricedCampur = $count_total_dCampur*85.00;
 
-                    echo "<br>"; 
-                    // echo str_repeat('&nbsp;', 8);                    
-                    
-                    $totKambing = 0;
-                    $total_pKambing=$data['p_kambing']; 
-                    $totKambing += $total_pKambing;
-                    echo "Kambing : ". $totKambing;
-                
-                ?> 
-                <br>
-                <?php 
-                    // $totAyam = 0;
-                    $total_pAyam=$data['p_ayam']; 
-                    $totPriceAyam = $totAyam*11.00;
-
-                    $total_pKambing=$data['p_kambing']; 
-                    $totPriceKambing = $totKambing*17.00;
-
-                    $totalSales = $totPriceAyam + $totPriceKambing;
-
-                    echo "TOTAL SALES = : RM". $totalSales;
-                    
-                ?>
+                            $totalSales = $totPriceAyam + $totPriceKambing + $totPriceCampur + $totPricedAyam + $totPricedKambing + $totPricedCampur; 
+                            echo "<h1> TOTAL SALES : RM". number_format($totalSales,2) .'</h1>';
+                        ?>
+                        <h3></h3>
+                    </div>
+                </div>
             </div>
         </div>
         
