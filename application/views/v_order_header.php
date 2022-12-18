@@ -25,6 +25,9 @@
 			<h5 class="offcanvas-title" id="offcanvasExampleLabel">Iman Catering</h5>
 			<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
 		</div>
+
+		<div id="digital-clock"></div>
+		
 		<div class="offcanvas-body">
 			<div>
 				sidebar
@@ -35,3 +38,45 @@
 		</div>
 	</div>
 </div>
+
+<script>
+	function displayDateTime() {
+		var currentDate = new Date();
+		var day = currentDate.getDate();
+		var month = currentDate.getMonth() + 1; // January is 0
+		var year = currentDate.getFullYear();
+		var hours = currentDate.getHours();
+		var minutes = currentDate.getMinutes();
+		var seconds = currentDate.getSeconds();
+
+		// Add a leading zero to the hours, minutes, and seconds if they are single digits
+		if (hours < 10) {
+			hours = "0" + hours;
+		}
+		if (minutes < 10) {
+			minutes = "0" + minutes;
+		}
+		if (seconds < 10) {
+			seconds = "0" + seconds;
+		}
+
+		// Concatenate the date and time into a single string
+		var dateString = month + "/" + day + "/" + year + " " + hours + ":" + minutes + ":" + seconds;
+
+		// Update the date and time display
+		document.getElementById("digital-clock").innerHTML = dateString;
+	}
+
+		// Call the displayDateTime function every 1000 milliseconds (1 second)
+		setInterval(displayDateTime, 1000);
+
+</script>
+
+<style>
+	#digital-clock {
+		font-size: 36px;
+		color: #660000;
+		text-align: center;
+		font-weight: bolder;
+	}
+</style>

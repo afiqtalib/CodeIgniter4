@@ -342,8 +342,6 @@
                         </div>
                     </div>
 
-                    
-
                     <div class="form-group mb-3">
                         <label for="" class="label-default px-2"><i class="fa fa-envelope" ></i>Remark</label>
                         <textarea type="text" name="remark" class="form-control box-text"  cols="30" rows="3" placeholder="Write your message to me / land mark location delivery "></textarea>

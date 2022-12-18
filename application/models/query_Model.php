@@ -14,11 +14,18 @@ class query_Model extends CI_Model
     public function nakOrder() {
         $this->db->select('*');
         $this->db->from('orders');
+        // $this->db->from('id',$data);
         // $this->db->order_by('date');
 
         $query = $this->db->get();
         $result = $query->result_array();
         return $result;
+    }
+
+    // Update Query For Selected Student
+    public function update_order($id,$data){
+        $this->db->where('id', $id);
+        $this->db->update('orders', $data);
     }
 
     public function getDataOrders()
