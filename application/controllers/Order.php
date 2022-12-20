@@ -74,4 +74,20 @@ class Order extends CI_Controller
         $this->load->view('v_order_report',$data);
     }
 
+    public function update_data($id, $data) {
+        if(isset($_POST['update'])) {
+            $data = array(
+                'status' => 'gdgdgd',
+            );
+            // $users_record=$this->query_Model->update_data();
+            // $data['result'] = $users_record; 
+            $this->db->where('id', $id);
+            $this->db->update('orders', $data);
+            echo 'order has successfully been updated';
+            redirect("order", "refresh");
+        }
+        // All records count      
+        
+    }
+
 }

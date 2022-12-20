@@ -86,19 +86,13 @@
                                         if ($data['d_campur']>0) {
                                             echo "<br> Dulang - Campur ".$data['d_campur'];
                                         }
-
-                                    // if ( isset ($data['p_ayam']) || $data['p_kambing'] || $data['p_campur']  == '0') {
-                                    //     echo "Single Pax - Ayam ".$data['p_ayam'] . "<br> Single Pax - Kambing ".$data['p_kambing'] ."<br> Single Pax - Campur ".$data['p_campur'];
-                                    // }
-                                    // echo "Single Pax - Ayam ".$data['p_ayam'] . "<br> Single Pax - Kambing ".$data['p_kambing'] ."<br> Single Pax - Campur ".$data['p_campur'];
-
                                     echo "</td>";
                                     echo "<td>".$data['date']."</td>";
                                     echo "<td>".$data['time']."</td>";
                                     echo "<td>".$data['location']."</td>";
                                     echo "<td> <a target='_blank' href='".$data['link']."'> <i class='fas fa-map-marked-alt fa-2x' style='color:#007FFF;'></i> </a> </td>";
                                     echo "<td>".$data['remark']."</td>";
-                                    echo "<td>"."<i class='fas fa-edit fa-lg text-warning' href=".base_url('index.php/order/').$data['id']."></i>"."</td>";
+                                    echo "<td>"."<i class='fas fa-edit fa-lg text-warning' name='update' action='site_url('order/update_data')'".$data['id']."></i>"."</td>";
                                 echo "</tr>"; 
                                 
                                 // SINGLE PACK

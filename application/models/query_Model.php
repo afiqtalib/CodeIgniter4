@@ -12,10 +12,11 @@ class query_Model extends CI_Model
     // }
 
     public function nakOrder() {
+        $today=date('Y-m-d');
         $this->db->select('*');
         $this->db->from('orders');
-        // $this->db->from('id',$data);
-        // $this->db->order_by('date');
+        $this->db->where('date >=',$today);
+        $this->db->order_by('date', 'asc');
 
         $query = $this->db->get();
         $result = $query->result_array();
@@ -25,7 +26,8 @@ class query_Model extends CI_Model
     // Update Query For Selected Student
     public function update_order($id,$data){
         $this->db->where('id', $id);
-        $this->db->update('orders', $data);
+        $query=$this->db->update('orders', $data);
+        return $query->result();
     }
 
     public function getDataOrders()
