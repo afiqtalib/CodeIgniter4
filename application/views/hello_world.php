@@ -37,6 +37,7 @@
         color: white;
         width: 60%;
         margin: auto;
+        border-width: 5px;
     }
 </style>
     <div class="container">
@@ -48,7 +49,7 @@
             <br>
                 <hr >
             <br>
-        <h2>Becoming PHP Developer</h2>
+        
     </div>
 
 
