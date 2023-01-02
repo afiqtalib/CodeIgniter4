@@ -8,7 +8,7 @@ class test extends CI_Controller
         
         /*load database libray manually*/
         $this->load->database();
-        S
+        
         /*load Model*/
         $this->load->model('query_Model');
 	}
