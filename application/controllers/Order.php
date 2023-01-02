@@ -7,12 +7,6 @@ class Order extends CI_Controller
         if (isset($_POST['submit'])) {
             $this->form_validation->set_rules('name','Name','required');
             $this->form_validation->set_rules('phone','Phone','required|min_length[10]|max_length[11]');
-            // $this->form_validation->set_rules('p_ayam');
-            // $this->form_validation->set_rules('p_kambing');
-            // $this->form_validation->set_rules('p_campur');
-            // $this->form_validation->set_rules('d_ayam');
-            // $this->form_validation->set_rules('d_kambing');
-            // $this->form_validation->set_rules('d_campur');
             $this->form_validation->set_rules('date','Tarikh','required');
             $this->form_validation->set_rules('time','Masa','required');
             $this->form_validation->set_rules('link','Link Google Maps','required');
@@ -69,25 +63,37 @@ class Order extends CI_Controller
 
     public function report() {
         // All records count      
-        $users_record=$this->query_Model->nakOrder();
+        $users_record=$this->query_Model->getDataOrders();
         $data['result'] = $users_record; 
         $this->load->view('v_order_report',$data);
     }
 
-    public function update_data($id, $data) {
-        if(isset($_POST['update'])) {
-            $data = array(
-                'status' => 'gdgdgd',
-            );
-            // $users_record=$this->query_Model->update_data();
-            // $data['result'] = $users_record; 
-            $this->db->where('id', $id);
-            $this->db->update('orders', $data);
-            echo 'order has successfully been updated';
-            redirect("order", "refresh");
-        }
-        // All records count      
-        
+    public function update_order1() {
+        $table     	= "orders";
+        $arrayData 	= array(
+                        'status' => 'last thahary',
+                    );
+        $where      = array(  
+                        'time'	=> '2',
+                        'location' => '2'
+                    );
+        $query = $this->query_Model->update_data($arrayData,$table,$where);
+            if($query==true) {
+                echo '<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>';
+
+                echo '<script type="text/javascript">sweetAlert("fsafsa !","Ansfm","error")</script>';
+            }
+            else {
+                echo '<script type="text/javascript">sweetAlert("Success !","Anda telah berjaya mengisi form","success")</script>';
+            }
     }
+
+    public function update_order(){
+		$this->load->database();
+		$this->load->model('query_Model');
+		$this->query_Model->update_row();		
+		// redirect("", "refresh");
+
+	}
 
 }

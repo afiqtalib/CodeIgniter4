@@ -20,10 +20,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   
 class Help extends CI_Controller {  
       
-    // public function index()  
-    // {  
-    //     $this->load->view("v_support_form");  
-    // }
+	public function __construct()
+	{
+		parent::__construct();
+		date_default_timezone_set('Asia/Kuala_Lumpur');
+		// error_reporting(E_ERROR | E_PARSE);
+	}
 	
 	// CURRENT
 	public function index()  

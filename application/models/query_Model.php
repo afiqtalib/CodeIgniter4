@@ -6,34 +6,37 @@ class query_Model extends CI_Model
     //     parent::__construct();  
     // }
 
-    // function update_data($where,$table) {
-    //     $this->db->where('location',$where);
-    //     $this->db->update('orders', $table);
-    // }
+    public function getDataOrders()
+    {
+        $query = $this->db->get('orders');
+        $result = $query->result_array();
+        return $result;
+    }
 
-    public function nakOrder() {
-        $today=date('Y-m-d');
+    public function getDataOrders1() {
         $this->db->select('*');
         $this->db->from('orders');
-        $this->db->where('date >=',$today);
         $this->db->order_by('date', 'asc');
-
         $query = $this->db->get();
         $result = $query->result_array();
         return $result;
     }
 
     // Update Query For Selected Student
-    public function update_order($id,$data){
-        $this->db->where('id', $id);
-        $query=$this->db->update('orders', $data);
-        return $query->result();
+    public function update_row(){
+        $update_row = array('status' => 'test jo',);
+        $this->db->where('id', 1);
+        $this->db->update('orders', $update_row);
     }
 
-    public function getDataOrders()
-    {
-        // get table in db
-        $query = $this->db->get("orders");
-        return $query->result_array();
+    function update_data($columnToUpdate, $tableToUpdate, $usingCondition)
+    {      
+        $this->db->where($usingCondition);
+        $this->db->update($tableToUpdate, $columnToUpdate);
     }
+
+    // function update_data($where,$table) {
+    //     $this->db->where('location',$where);
+    //     $this->db->update('orders', $table);
+    // }
 }

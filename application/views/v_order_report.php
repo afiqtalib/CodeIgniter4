@@ -7,18 +7,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Report | Iman Catering</title>
+
+    <!-- CDN DATATABLE -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.11.5/datatables.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.11.5/datatables.min.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' />
+    <!-- SWEETALERT CDN -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 </head>
-<!-- CDN DATATABLE -->
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.11.5/datatables.min.css" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.11.5/datatables.min.js"></script>
 
 <style>
     body {
+        font-family: Roboto;
         margin: 0;
         width: 100%;
-        background: rgb(239,119,121);
-        background: linear-gradient(302deg, rgba(239,119,121,1) 3%, rgba(251,206,177,1) 75%);    
+        background: #C81D11;
     }
 </style>
 
@@ -37,7 +42,7 @@
                         <thead class="table-primary">
                             <tr class="text-dark">
                                 <th> No. </th>
-                                <th> Name </th>
+                                <th style="width:18%"> Name </th>
                                 <th> Phone </th>
                                 <th style="width:18%"> Order </th>
                                 <th style="width:10%"> Tarikh </th>
@@ -45,6 +50,8 @@
                                 <th> Tempat </th>
                                 <th> Loc </th>
                                 <th> Remark </th>
+                                <th> Total (RM)</th>
+                                <th> Status </th>
                                 <th style="width:2%">A</th>
                             </tr>
                         </thead>
@@ -90,8 +97,10 @@
                                     echo "<td>".$data['date']."</td>";
                                     echo "<td>".$data['time']."</td>";
                                     echo "<td>".$data['location']."</td>";
-                                    echo "<td> <a target='_blank' href='".$data['link']."'> <i class='fas fa-map-marked-alt fa-2x' style='color:#007FFF;'></i> </a> </td>";
+                                    echo "<td> <a target='_blank' href='".$data['link']."'> <i class='fas fa-map-marked-alt fa-1x' style='color:#007FFF;'></i> </a> </td>";
                                     echo "<td>".$data['remark']."</td>";
+                                    echo "<td>".$total =($data['p_ayam']*11)+($data['p_kambing']*17)+($data['p_campur']*20)+($data['d_ayam']*75)+($data['d_kambing']*90)+($data['d_campur']*85)."</td>";
+                                    echo "<td>".$data['status']."</td>";
                                     echo "<td>"."<i class='fas fa-edit fa-lg text-warning' name='update' action='site_url('order/update_data')'".$data['id']."></i>"."</td>";
                                 echo "</tr>"; 
                                 
@@ -165,9 +174,14 @@
 
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
                     style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
-                    Custom button
+                    Custom
                 </button>
-            </div>
+                <a name="update" class="btn btn-sm btn-warning" href="<?php echo site_url('order/update_order1'); ?>"                         
+                    style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem; color:black;">
+                    Update data
+                </a>
+
+            </div>  
 
             <div class="card-footer fw-bold">
                 <div class="row px-4">
@@ -219,7 +233,7 @@
                             $totPricedCampur = $count_total_dCampur*85.00;
 
                             $totalSales = $totPriceAyam + $totPriceKambing + $totPriceCampur + $totPricedAyam + $totPricedKambing + $totPricedCampur; 
-                            echo "<h1> TOTAL SALES : RM". number_format($totalSales,2) .'</h1>';
+                            echo "<h1 class='fw-bold'> TOTAL SALES : RM". number_format($totalSales,2) .'</h1>';
                         ?>
                         <h3></h3>
                     </div>

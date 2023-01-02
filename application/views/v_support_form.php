@@ -11,13 +11,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css"> </link>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
 
-    <!-- BOOTSTRAP VERSION 5.0.0 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="<?php echo base_url(); ?> assets/css/bootstrap.min.css">
 
-    <!-- SWEETALERT CDN -->
+ <!-- SWEETALERT CDN -->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
 </head>
 
     <style>
@@ -28,7 +26,7 @@
             /* background: rgb(3,192,60);
             background: linear-gradient(82deg, rgba(3,192,60,1) 0%, rgba(40,199,111,1) 100%); */
             /* assets/image/bg-wasapmy.png */
-            background-image: url('assets/image/bg-wasapmy2.png');
+            background-image: url('assets/image/bg-wasapmy.png');
             background-repeat: repeat;
             background-position: left;
             background-color: var(--bs-body-bg);
@@ -38,10 +36,10 @@
             background-color: #F5F5F7;
             font-family: Verdana, Geneva, Tahoma, sans-serif;
             color: rgb(79, 79, 79);
-            /* -webkit-animation: name 35s infinite; */
+            -webkit-animation: name 35s infinite;
         }
         
-        /* @-webkit-keyframes name {
+        @-webkit-keyframes name {
             0% {
                 background-color: #F5F5F7;
             }
@@ -60,7 +58,7 @@
             100% {
                 background-color: #F5F5F7;
             }
-        }    */
+        }   
 
         /* .register
         {
@@ -82,7 +80,7 @@
             font-family: 'Inter', sans-serif;
             border-radius: 20px;
             box-shadow: 0 4px 5px -1px rgba(0, 0, 0, 0.4), 0 2px 3px -1px rgba(0, 0, 0, 0.4);
-            width: 60%;
+            width: 75%;
             margin: 5% auto;
             padding: 10px;
         }
@@ -99,34 +97,68 @@
     </style>
 
   <body>    
-    <div class="container-sm box-container">
+    <div class="container box-container">
         <div class="text-center pt-4">
-            <h6 class="h3 text-red-900 "><img src="<?php echo base_url('assets/image/wasap-my.png');?>" alt="logo" width="20%"></h6>
-            <h6 class="h6 text-black-900 mb-2">Please fill this form</h6>
+            <h6 class="h3 text-red-900 "><img src="<?php echo base_url('assets/image/wasap-my.png');?>" alt="logo" width="25%"></h6>
+            <h6 class="h6 text-black-900 mb-2">Anda boleh isi form ini untuk direct ke Whatsapp kami</h6>
         </div>
         <div class="row justify-content-center">
             <div class="col-lg-10" >
-                <!-- MESSAGE for filling the form   -->
-                <?php   if (isset($_SESSION['success'])) { 
-                    echo '<script type="text/javascript">sweetAlert("Success !","Your application is failed","success")</script>';
-                    // echo '<script>location.replace("https://wasap.my/601156759880/nakorder")</script>';
-                    //  foreach ($_POST as $selected => $value) {
-                        // echo "$selected = $value";
-                        // echo "$value";     
-                    // echo '<script>window.location.replace("https://wasap.my/601156759880/Assalamualaikum\r\n'.$value.'")</script>';
-                    // }
-                    // $name=$_POST['name'];
-                    // $phone=$_POST['phone']; 
-                    
-                    if((isset($_POST['name'])) && (isset($_POST['phone'])) && (isset($_POST['user_type'])) && (isset($_POST['prob_type'])) && (isset($_POST['message'])))  {
+                <!-- MESSAGE SUBMIT FORM & REDIRECT TO WS  -->
+                <?php   
+                    if (isset($_SESSION['success'])) {
+                        echo '<script type="text/javascript">sweetAlert("Success !","Anda telah berjaya mengisi form","success")</script>';
 
-                        $text_msg = "Asslamulaikum Customer Services WASAP.MY" .'%0D%0A %0D%0A'."Name: ".$_POST['name'] .'%0D%0A'. "Phone: ".$_POST['phone'] .'%0D%0A'. "Type of user: ".$_POST['user_type'].'%0D%0A'. "Problem: ".$_POST['prob_type'] .'%0D%0A'. "Message: " .$_POST['message']. '%0D%0A'. "Thank You";
+                        if((isset($_POST['name'])) && (isset($_POST['phone'])) && (isset($_POST['user_type'])) && (isset($_POST['prob_type'])) && (isset($_POST['message'])))  {
+                            
+                            // "%0D%0A" - insert next line
+                            $txt_1 = 'Nama: '.$_POST['name']."%0A";
+                            $txt_2 = 'No Telefon: '.$_POST['phone']."%0D%0A";
+                            
+                            // if statement for USER_TYPE
+                            if ($_POST['user_type']== 1) {
+                                $txt_3 = 'Pengguna: Unregistered';
+                            }
+                            else if ($_POST['user_type'] == 2) {
+                                $txt_3 = "Pengguna: Registered Free";
+                            }
+                            else if ($_POST['user_type'] == 3) {
+                                $txt_3 = "Pengguna: Registered Premium";
+                            }
+                            
+                            // if statement for PROB_TYPE
+                            if ($_POST['prob_type']== 1) {
+                                $txt_4 = 'Masalah: System update';
+                            }
+                            else if ($_POST['prob_type']== 2) {
+                                $txt_4 = 'Masalah: Link issues (untally/unvalid)';
+                            }
+                            else if ($_POST['prob_type']== 3) {
+                                $txt_4 = 'Masalah: Payment & Package';
+                            }
+                            else if ($_POST['prob_type']== 4) {
+                                $txt_4 = 'Masalah: System Features';
+                            }
+                            else if ($_POST['prob_type']== 5) {
+                                $txt_4 = 'Masalah: FB, TikTok Pixel ID / google Conversion';
+                            }
+                            else if ($_POST['prob_type']== 6) {
+                                $txt_4 = 'Masalah: Registered account details';
+                            }
+                            else if ($_POST['prob_type']== 7) {
+                                $txt_4 = 'Masalah: Expiration date';
+                            }
+                            else if ($_POST['prob_type']== 8) {
+                                $txt_4 = 'Masalah: Lain-lain';
+                            }
+                            
+                            $txt_5 = 'Mesej: '.$_POST['message']."%0D%0A";
+                            
+                            $text_msg = "Assalamualaikum Customer Services WASAP.MY" .'%0D%0A %0D%0A'. $txt_1.$txt_2.$txt_3.'%0D%0A'.$txt_4.'%0D%0A'.$txt_5. "Thank You";
                         }
-                    // $text_msg= $name.$phone.$message;
-                    echo '<script>window.location.replace("https://api.whatsapp.com/send?phone=601156759880&text='.$text_msg.'")</script>';
-                }
-                ?>
-                <!-- %0D%0A -->
+                        // $text_msg= $name.$phone.$message; 01128951819
+                        echo '<script>window.location.replace("https://api.whatsapp.com/send?phone=601128951819&text='.$text_msg.'")</script>';
+                 }?>
 
                 <!-- check validation form -->
                 <?php echo validation_errors('<div class="alert alert-danger">','</div>');?>
@@ -148,8 +180,8 @@
                         <select name="user_type" id="gender" class="form-control box-text">
                             <option value="">Choose type of user</option>
                             <option value="1">Unregistered </option>
-                            <option value="1">Registered FREE </option>
-                            <option value="2">Registered PREMIUM &#11088;</option>
+                            <option value="2">Registered FREE </option>
+                            <option value="3">Registered PREMIUM &#11088;</option>
                         </select>
                         
                     </div>
@@ -182,14 +214,6 @@
                         <button class="btn btn-warning btn-user btn-block mb-3" type="reset"> 
                             <i class="fa fa-sync"></i> RESET   
                         </button>
-                        <?php
-                            $txt_1 = 'You can see there is no need to include special commands for spaces if they  are in a PHP variable.'."%0A";
-                            $txt_2 = 'But you do need to include some inside the variable to jump lines.'."%0D%0A";
-                            $txt_3 = 'And nothing special for links: https://example.com';
-                            $msg= $txt_1.$txt_2.$txt_3."%0A";
-                        ?>
-                            <button class="btn btn-success btn-user btn-block mb-3 " href="https://wasap.my/01156759880/text=<?php echo $msg ?>.">..
-                            </button>
 
                     </div>
                 </form>
