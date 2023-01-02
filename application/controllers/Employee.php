@@ -29,7 +29,7 @@ class Employee extends CI_Controller
 			$data['password']=$this->input->post('password');
 			$response=$this->Emp_model->saverecords($data);
 			if($response==true){
-			        echo "Records Saved Successklly";
+			        echo "Records Sdvavedfdd Successklly";
 			}
 			else{
 					echo "Insert error !";
