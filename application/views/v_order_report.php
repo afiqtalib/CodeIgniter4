@@ -23,13 +23,13 @@
         font-family: Roboto;
         margin: 0;
         width: 100%;
-        background: #C81D11;
+        background: #840844;
     }
 </style>
 
 <body>
     <div class="container mt-5">
-        <div class="card shadow p-3 mb-5 bg-body rounded">
+        <div class="card shadow-lg p-3 mb-5 bg-light rounded" >
             <div class="">
             </div>
             <div class="card-body">
