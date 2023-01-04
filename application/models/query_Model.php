@@ -24,8 +24,10 @@ class query_Model extends CI_Model
 
     // Update Query For Selected Student
     public function update_row(){
-        $update_row = array('status' => 'test jo',);
-        $this->db->where('id', 1);
+        $today=date('Y-m-d');
+        $update_row = array('status' => 'update',);
+        // $this->db->where('id', 1);
+        $this->db->where('date <', $today);
         $this->db->update('orders', $update_row);
     }
 

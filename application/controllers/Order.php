@@ -62,30 +62,56 @@ class Order extends CI_Controller
     }
 
     public function report() {
-        // All records count      
+        $today = date('Y-m-d');
+        $table     	= "orders";
+        $arrayData 	= array(
+                        'status' => 'completedfdfd',
+                    );
+        $where      = array( 
+                        // 'time' => 2,
+                        'location' => (3),
+                        'date <'  => $today
+                    );
+        $this->query_Model->update_data($arrayData,$table,$where);
+        // $this->session->set_flashdata("success", "");
+        // redirect("order/report", "refresh");
+        
+        // All report orders 
         $users_record=$this->query_Model->getDataOrders();
         $data['result'] = $users_record; 
         $this->load->view('v_order_report',$data);
     }
 
+    public function test_update() {
+        $today = date('Y-m-d');
+        $table     	= "user";
+        $arrayData 	= array(
+                        'rank' => 0,
+                    );
+        $where      = array(  
+                        // 'time'	=> '2',
+                        'rank' => 1,
+                        'date_end !='  => '0000-00-00',
+                        'date_end <'  => $today
+                    );
+        $this->query_Model->update_data($arrayData,$table,$where);
+    }
+
     public function update_order1() {
+        $today = date('Y-m-d');
         $table     	= "orders";
         $arrayData 	= array(
-                        'status' => 'last thahary',
+                        'status' => 'tdddest',
                     );
         $where      = array(  
                         'time'	=> '2',
-                        'location' => '2'
+                        'location' => '3',
+                        'date <'  => $today
                     );
-        $query = $this->query_Model->update_data($arrayData,$table,$where);
-            if($query==true) {
-                echo '<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>';
-
-                echo '<script type="text/javascript">sweetAlert("fsafsa !","Ansfm","error")</script>';
-            }
-            else {
-                echo '<script type="text/javascript">sweetAlert("Success !","Anda telah berjaya mengisi form","success")</script>';
-            }
+        $this->query_Model->update_data($arrayData,$table,$where);
+            // $this->load->view('v_order_report');
+            $this->session->set_flashdata("success", "");
+            redirect("order/report", "refresh");
     }
 
     public function update_order(){
@@ -93,6 +119,9 @@ class Order extends CI_Controller
 		$this->load->model('query_Model');
 		$this->query_Model->update_row();		
 		// redirect("", "refresh");
+        echo '<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>';
+
+        echo '<script type="text/javascript">sweetAlert("fsafsa !","Ansfm","error")</script>';
 
 	}
 

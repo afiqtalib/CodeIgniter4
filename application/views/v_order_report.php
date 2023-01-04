@@ -181,6 +181,11 @@
                     Update data
                 </a>
 
+                <?php   if (isset($_SESSION['success'])) { 
+                    echo '<script type="text/javascript">sweetAlert("Update !","Order anda Berjaya Update","success")</script>';
+                }
+                ?>
+
             </div>  
 
             <div class="card-footer fw-bold">
