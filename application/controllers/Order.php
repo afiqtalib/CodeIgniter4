@@ -65,11 +65,11 @@ class Order extends CI_Controller
         $today = date('Y-m-d');
         $table     	= "orders";
         $arrayData 	= array(
-                        'status' => 'completedfdfd',
+                        'status' => 'completed',
                     );
         $where      = array( 
                         // 'time' => 2,
-                        'location' => (3),
+                        // 'location' => (3),
                         'date <'  => $today
                     );
         $this->query_Model->update_data($arrayData,$table,$where);
