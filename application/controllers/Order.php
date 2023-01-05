@@ -65,7 +65,8 @@ class Order extends CI_Controller
         $today = date('Y-m-d');
         $table     	= "orders";
         $arrayData 	= array(
-                        'status' => 'completed',
+                        'status' => '$aray',
+                        'remark' => 'test',
                     );
         $where      = array( 
                         // 'time' => 2,
