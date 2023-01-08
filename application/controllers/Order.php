@@ -53,24 +53,22 @@ class Order extends CI_Controller
         $this->load->helper('url');
         // Load Pagination library 
         $this->load->library('pagination');
-
-        /*load database libray manually*/
-        $this->load->database();
-
-        /*load Model*/
-        $this->load->model('query_Model');
     }
 
     public function report() {
+        // $id_order = $this->uri->segment(3);
+        // $table = "orders";
+        // $where = array('id' => $id_order);
+        // $this->query_Model->get_specified_row($table,$where);
+
+        // Auto update the past orders
         $today = date('Y-m-d');
         $table     	= "orders";
         $arrayData 	= array(
-                        'status' => '$aray',
+                        'status' => 'done',
                         'remark' => 'test',
                     );
         $where      = array( 
-                        // 'time' => 2,
-                        // 'location' => (3),
                         'date <'  => $today
                     );
         $this->query_Model->update_data($arrayData,$table,$where);
@@ -83,14 +81,13 @@ class Order extends CI_Controller
         $this->load->view('v_order_report',$data);
     }
 
-    public function test_update() {
+    public function test_update_wasapmy() {
         $today = date('Y-m-d');
         $table     	= "user";
         $arrayData 	= array(
                         'rank' => 0,
                     );
         $where      = array(  
-                        // 'time'	=> '2',
                         'rank' => 1,
                         'date_end !='  => '0000-00-00',
                         'date_end <'  => $today
@@ -102,7 +99,7 @@ class Order extends CI_Controller
         $today = date('Y-m-d');
         $table     	= "orders";
         $arrayData 	= array(
-                        'status' => 'tdddest',
+                        'status' => 'testing',
                     );
         $where      = array(  
                         'time'	=> '2',
@@ -110,9 +107,9 @@ class Order extends CI_Controller
                         'date <'  => $today
                     );
         $this->query_Model->update_data($arrayData,$table,$where);
-            // $this->load->view('v_order_report');
-            $this->session->set_flashdata("success", "");
-            redirect("order/report", "refresh");
+        // $this->load->view('v_order_report');
+        $this->session->set_flashdata("success", "");
+        redirect("order/report", "refresh");
     }
 
     public function update_order(){
@@ -125,5 +122,23 @@ class Order extends CI_Controller
         echo '<script type="text/javascript">sweetAlert("fsafsa !","Ansfm","error")</script>';
 
 	}
+
+    public function update_data() {
+        // $today = date('Y-m-d');
+        $id_order = $this->uri->segment(3);
+        $table     	= "orders";
+        $arrayData 	= array(
+                        'status' => 'hahaha',
+                    );
+        $where      = array(  
+                        'id'	=> $id_order
+                    );
+        $this->query_Model->update_data($arrayData,$table,$where);
+        // $this->load->view('v_order_report');
+        $this->session->set_flashdata("success", "");
+        redirect("order/report", "refresh");
+    }
+
+    
 
 }

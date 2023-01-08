@@ -69,12 +69,12 @@
                                 $count_total_dCampur = 0;
 
                                 foreach($result as $data)
-                                {                            
-                                echo "<tr> ";
-                                    echo "<td style='width:1%'>".$no++."</td>";
-                                    echo "<td>".$data['name']."</td>";
-                                    echo "<td>".$data['phone']."</td>";
-                                    echo "<td>"; 
+                                { ?>                            
+                                <tr>
+                                    <td style="width:1%"><?php echo $no++; ?></td>
+                                    <td><?php echo $data['name']; ?></td>
+                                    <td><?php echo $data['phone']; ?></td>
+                                    <td><?php  
                                         if ($data['p_ayam']>0) {
                                             echo "Single Pax - Ayam ".$data['p_ayam'];
                                         }
@@ -92,18 +92,18 @@
                                         }
                                         if ($data['d_campur']>0) {
                                             echo "<br> Dulang - Campur ".$data['d_campur'];
-                                        }
-                                    echo "</td>";
-                                    echo "<td>".$data['date']."</td>";
-                                    echo "<td>".$data['time']."</td>";
-                                    echo "<td>".$data['location']."</td>";
-                                    echo "<td> <a target='_blank' href='".$data['link']."'> <i class='fas fa-map-marked-alt fa-1x' style='color:#007FFF;'></i> </a> </td>";
-                                    echo "<td>".$data['remark']."</td>";
-                                    echo "<td>".$total =($data['p_ayam']*11)+($data['p_kambing']*17)+($data['p_campur']*20)+($data['d_ayam']*75)+($data['d_kambing']*90)+($data['d_campur']*85)."</td>";
-                                    echo "<td>".$data['status']."</td>";
-                                    echo "<td>"."<i class='fas fa-edit fa-lg text-warning' name='update' action='site_url('order/update_data')'".$data['id']."></i>"."</td>";
-                                echo "</tr>"; 
-                                
+                                        } ?>
+                                    </td>
+                                    <td><?php echo $data['date'] ?></td>
+                                    <td><?php echo $data['time'] ?></td>
+                                    <td><?php echo $data['location'] ?></td>
+                                    <td> <a target='_blank' href=<?php echo $data['link'] ?>> <i class="fas fa-map-marked-alt fa-1x" style="color:#007FFF;"></i> </a></td>
+                                    <td><?php echo $data['remark'] ?></td>
+                                    <td><?php echo $total =($data['p_ayam']*11)+($data['p_kambing']*17)+($data['p_campur']*20)+($data['d_ayam']*75)+($data['d_kambing']*90)+($data['d_campur']*85) ?></td>
+                                    <td><?php echo $data['status'] ?></td>
+                                    <td><a href="<?php echo site_url('order/update_data/'. $data['id'])?>"> <i class="fas fa-edit fa-lg text-warning"></i> </a> </td>
+                                </tr> 
+                                <?php
                                 // SINGLE PACK
                                 $total_pAyam=$data['p_ayam']; 
                                 $count_total_pAyam += $total_pAyam;
@@ -174,7 +174,7 @@
 
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
                     style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
-                    Custom
+                    Modal
                 </button>
                 <a name="update" class="btn btn-sm btn-warning" href="<?php echo site_url('order/update_order1'); ?>"                         
                     style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem; color:black;">
@@ -190,8 +190,8 @@
 
             <div class="card-footer fw-bold">
                 <div class="row px-4">
-                    <div class="col-sm-3">
-                        <!-- <ul class="">
+                    <div class="col-md-3">
+                        <ul class="">
                             <h5>SINGLE PAX</h5>
                             <li class=" d-flex justify-content-between align-items-center">
                                 Ayam
@@ -205,29 +205,44 @@
                                 Campur
                                 <span class="badge bg-primary rounded-pill"><?php echo $count_total_pCampur?></span>
                             </li>
-                        </ul> -->
+                        </ul>
                         
                         <?php
-                            // echo str_repeat('&nbsp;', 8);
-                            echo "SINGLE PAX <br>";
-                            echo "Ayam : ". $count_total_pAyam;
-                            echo "<br>"; 
-                            echo "Kambing : ". $count_total_pKambing;
-                            echo "<br>"; 
-                            echo "Campur : ". $count_total_pCampur;
+                            echo str_repeat('&nbsp;', 8);
+                            // echo "SINGLE PAX <br>";
+                            // echo "Ayam : ". $count_total_pAyam;
+                            // echo "<br>"; 
+                            // echo "Kambing : ". $count_total_pKambing;
+                            // echo "<br>"; 
+                            // echo "Campur : ". $count_total_pCampur;
                         ?> 
                     </div>
-                    <div class="col-sm-3">
+                    <div class="col-md-3">
+                    <ul class="">
+                            <h5>DULANG</h5>
+                            <li class=" d-flex justify-content-between align-items-center">
+                                Ayam
+                                <span class="badge bg-primary rounded-pill"><?php echo $count_total_dAyam ?></span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Kambing
+                                <span class="badge bg-primary rounded-pill"><?php echo $count_total_dKambing ?></span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Campur
+                                <span class="badge bg-primary rounded-pill"><?php echo $count_total_dCampur?></span>
+                            </li>
+                        </ul>
                         <?php
-                            echo "DULANG <br>";
-                            echo "Ayam : ". $count_total_dAyam;
-                            echo "<br>"; 
-                            echo "Kambing : ". $count_total_dKambing;
-                            echo "<br>"; 
-                            echo "Campur : ". $count_total_dCampur;
+                            // echo "DULANG <br>";
+                            // echo "Ayam : ". $count_total_dAyam;
+                            // echo "<br>"; 
+                            // echo "Kambing : ". $count_total_dKambing;
+                            // echo "<br>"; 
+                            // echo "Campur : ". $count_total_dCampur;
                         ?> 
                     </div>
-                    <div class="col-sm-6 text-success">
+                    <div class="col-md-6 text-success text-center">
                         <?php 
                             $totPriceAyam = $count_total_pAyam*11.00;
                             $totPriceKambing = $count_total_pKambing*17.00;
@@ -245,6 +260,18 @@
                 </div>
             </div>
         </div>
+
+        <!-- echo (strlen($abu)>150)?substr($post['content'],0,150).'...':$post['content']; ?> -->
+<details>
+    <summary>Description</summary>
+    <p>
+        <?php 
+            $abu="The Model represents your data structures. Typically, your model classes will contr, aocess the HTTP request and generate a web page";
+            echo $abu;
+        ?>
+    </p>
+</details>
+<!-- <p><?php echo (strlen($abu)>50)?substr($abu,0,50).'...':$abu;?></p> -->
         
         
     </div>
