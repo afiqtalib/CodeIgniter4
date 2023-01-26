@@ -62,16 +62,17 @@ class Order extends CI_Controller
         // $this->query_Model->get_specified_row($table,$where);
 
         // Auto update the past orders
-        $today = date('Y-m-d');
-        $table     	= "orders";
-        $arrayData 	= array(
-                        'status' => 'donede',
-                        'remark' => 'testing',
-                    );
-        $where      = array( 
-                        'date <'  => $today
-                    );
-        $this->query_Model->update_data($arrayData,$table,$where);
+        // $today = date('Y-m-d');
+        // $table     	= "orders";
+        // $arrayData 	= array(
+        //                 'status' => 'pending',
+        //                 'remark' => 'see location',
+        //             );
+        // $where      = array( 
+        //                 'date <'  => $today
+        //             );
+        // $this->query_Model->update_data($arrayData,$table,$where);
+
         // $this->session->set_flashdata("success", "");
         // redirect("order/report", "refresh");
         
@@ -99,7 +100,8 @@ class Order extends CI_Controller
         // $today = date('Y-m-d');
         $table     	= "orders";
         $arrayData 	= array(
-                        'status' => 'supdate status'
+                        'status' => 'suhahahatus',
+                        'date'  => '0000-00-00',
                     );
         $where      = array(  
                         'time !='	=> '3',
@@ -126,7 +128,7 @@ class Order extends CI_Controller
         $id_order = $this->uri->segment(3);
         $table     	= "orders";
         $arrayData 	= array(
-                        'status' => 'hahaha',
+                        'status' => 'delivered',
                     );
         $where      = array(  
                         'id'	=> $id_order

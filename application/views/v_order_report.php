@@ -100,7 +100,14 @@
                                     <td> <a target='_blank' href=<?php echo $data['link'] ?>> <i class="fas fa-map-marked-alt fa-1x" style="color:#007FFF;"></i> </a></td>
                                     <td><?php echo $data['remark'] ?></td>
                                     <td><?php echo $total =($data['p_ayam']*11)+($data['p_kambing']*17)+($data['p_campur']*20)+($data['d_ayam']*75)+($data['d_kambing']*90)+($data['d_campur']*85) ?></td>
-                                    <td><?php echo $data['status'] ?></td>
+                                    <?php 
+                                        if ($data['status']!='pending') {
+                                            $status="success";
+                                            } else {
+                                            $status="primary";
+                                            }
+                                    ?>
+                                    <td> <span class="badge rounded-pill text-bg-<?php echo $status?>"><?php echo $data['status'] ?></span> </td>
                                     <td><a href="<?php echo site_url('order/update_data/'. $data['id'])?>"> <i class="fas fa-edit fa-lg text-warning"></i> </a> </td>
                                 </tr> 
                                 <?php
