@@ -141,7 +141,7 @@
     </script>
 
   <body>    
-    <div class="container-sm box-container">
+    <div class="container-sm box-container col-xl-6 col-lg-6 col-md-9">
         <div class="text-center pt-4">
             <h6 class="h3 text-red-900 "><img src="<?php echo base_url('assets/image/iman-catering.png');?>" alt="logo" width="40%"></h6>
             <h6 class="h6 text-black-900 mb-3">Hi pelanggan Iman Catering, Anda boleh order sekarang!</h6>

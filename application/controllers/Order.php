@@ -65,8 +65,8 @@ class Order extends CI_Controller
         $today = date('Y-m-d');
         $table     	= "orders";
         $arrayData 	= array(
-                        'status' => 'done',
-                        'remark' => 'test',
+                        'status' => 'donede',
+                        'remark' => 'testing',
                     );
         $where      = array( 
                         'date <'  => $today
@@ -96,15 +96,13 @@ class Order extends CI_Controller
     }
 
     public function update_order1() {
-        $today = date('Y-m-d');
+        // $today = date('Y-m-d');
         $table     	= "orders";
         $arrayData 	= array(
-                        'status' => 'testing',
+                        'status' => 'supdate status'
                     );
         $where      = array(  
-                        'time'	=> '2',
-                        'location' => '3',
-                        'date <'  => $today
+                        'time !='	=> '3',
                     );
         $this->query_Model->update_data($arrayData,$table,$where);
         // $this->load->view('v_order_report');
