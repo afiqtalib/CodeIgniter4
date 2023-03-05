@@ -106,42 +106,42 @@
 
     <script>
         function incrementValue(e) {
-        e.preventDefault();
-        var fieldName = $(e.target).data('field');
-        var parent = $(e.target).closest('div');
-        var currentVal = parseInt(parent.find('input[name=' + fieldName + ']').val(), 10);
+            e.preventDefault();
+            var fieldName = $(e.target).data('field');
+            var parent = $(e.target).closest('div');
+            var currentVal = parseInt(parent.find('input[name=' + fieldName + ']').val(), 10);
 
-        if (!isNaN(currentVal)) {
-            parent.find('input[name=' + fieldName + ']').val(currentVal + 1);
-        } else {
-            parent.find('input[name=' + fieldName + ']').val(0);
+            if (!isNaN(currentVal)) {
+                parent.find('input[name=' + fieldName + ']').val(currentVal + 1);
+            } else {
+                parent.find('input[name=' + fieldName + ']').val(0);
+            }
         }
-    }
 
-    function decrementValue(e) {
-        e.preventDefault();
-        var fieldName = $(e.target).data('field');
-        var parent = $(e.target).closest('div');
-        var currentVal = parseInt(parent.find('input[name=' + fieldName + ']').val(), 10);
+        function decrementValue(e) {
+            e.preventDefault();
+            var fieldName = $(e.target).data('field');
+            var parent = $(e.target).closest('div');
+            var currentVal = parseInt(parent.find('input[name=' + fieldName + ']').val(), 10);
 
-        if (!isNaN(currentVal) && currentVal > 0) {
-            parent.find('input[name=' + fieldName + ']').val(currentVal - 1);
-        } else {
-            parent.find('input[name=' + fieldName + ']').val(0);
+            if (!isNaN(currentVal) && currentVal > 0) {
+                parent.find('input[name=' + fieldName + ']').val(currentVal - 1);
+            } else {
+                parent.find('input[name=' + fieldName + ']').val(0);
+            }
         }
-    }
 
-    $('.input-group').on('click', '.button-plus', function(e) {
-        incrementValue(e);
-    });
+        $('.input-group').on('click', '.button-plus', function(e) {
+            incrementValue(e);
+        });
 
-    $('.input-group').on('click', '.button-minus', function(e) {
-        decrementValue(e);
-    });
+        $('.input-group').on('click', '.button-minus', function(e) {
+            decrementValue(e);
+        });
     </script>
 
   <body>    
-    <div class="container-sm box-container col-xl-6 col-lg-6 col-md-9">
+    <div class="container card col-xl-6 col-lg-6 col-md-9 mt-4">
         <div class="text-center pt-4">
             <h6 class="h3 text-red-900 "><img src="<?php echo base_url('assets/image/iman-catering.png');?>" alt="logo" width="40%"></h6>
             <h6 class="h6 text-black-900 mb-3">Hi pelanggan Iman Catering, Anda boleh order sekarang!</h6>
@@ -159,18 +159,19 @@
                     // $name=$_POST['name'];
                     // $phone=$_POST['phone']; 
                     
-                    if((isset($_POST['name'])) && (isset($_POST['phone'])) && (isset($_POST['p_ayam'])) && (isset($_POST['p_kambing'])) && (isset($_POST['remark'])) && (isset($_POST['link'])))  {
-                        // Prefilled Text in WhatsApp
-                        $txt_1 = 'Name: '.$_POST['name']."%0A";
-                        $txt_2 = 'Phone: '.$_POST['phone']."%0D%0A";
-                        $txt_3 = 'Ayam PAX: '.$_POST['p_ayam']."%0D%0A";
-                        $txt_4 = 'Kambing PAX: '.$_POST['p_kambing']."%0D%0A";
-                        $txt_5 = 'Message: '.$_POST['remark']."%0D%0A";
-                        $txt_6 = 'Link Location: '.$_POST['link']."%0D%0A";
+                    // Direct ke WA
+                    // if((isset($_POST['name'])) && (isset($_POST['phone'])) && (isset($_POST['p_ayam'])) && (isset($_POST['p_kambing'])) && (isset($_POST['remark'])) && (isset($_POST['link'])))  {
+                    //     // Prefilled Text in WhatsApp
+                    //     $txt_1 = 'Name: '.$_POST['name']."%0A";
+                    //     $txt_2 = 'Phone: '.$_POST['phone']."%0D%0A";
+                    //     $txt_3 = 'Ayam PAX: '.$_POST['p_ayam']."%0D%0A";
+                    //     $txt_4 = 'Kambing PAX: '.$_POST['p_kambing']."%0D%0A";
+                    //     $txt_5 = 'Message: '.$_POST['remark']."%0D%0A";
+                    //     $txt_6 = 'Link Location: '.$_POST['link']."%0D%0A";
 
-                        $msg = "Asslamulaikum Iman Catering" .'%0D%0A %0D%0A'. $txt_1.$txt_2.$txt_3.$txt_4.$txt_5.$txt_6. "Thank You";
-                    }
-                    echo '<script>window.location.replace("https://api.whatsapp.com/send?phone=60199972514&text='.$msg.'")</script>';
+                    //     $msg = "Asslamulaikum Iman Catering" .'%0D%0A %0D%0A'. $txt_1.$txt_2.$txt_3.$txt_4.$txt_5.$txt_6. "Thank You";
+                    // }
+                    // echo '<script>window.location.replace("https://api.whatsapp.com/send?phone=60199972514&text='.$msg.'")</script>';
                 }
                 ?>
                 <!-- %0D%0A -->
@@ -247,7 +248,7 @@
                     <!-- SET DULANG  -->
                     <div class="form-group mb-3">
                         <div class="mb-4 border-bottom pb-2">
-                            <h5 class="mb-0"> <i class="fa fa-utensils"></i> Dulang</h5>
+                            <h5 class="mb-0"> <i class="fa fa-utensils"></i> Set 6/7 Dulang</h5>
                         </div>
                         <div class="row">
                             <div class="col-lg-12">
@@ -371,7 +372,7 @@
 
         <!-- Footer -->
         <footer class="sticky-footer">
-                    <div class="container my-auto mb-2">
+            <div class="container my-auto mb-2">
 		  		<div class="copyright text-center text-light my-auto fw-bold">
 					<span>Copyright &copy; Iman Catering (2022) </span>
 		  		</div>
