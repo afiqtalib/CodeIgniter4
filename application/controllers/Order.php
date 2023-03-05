@@ -24,6 +24,9 @@
                         'p_ayam'=>$_POST['p_ayam'],
                         'p_kambing'=>$_POST['p_kambing'],
                         'p_campur'=>$_POST['p_campur'],
+                        'dk_ayam'=>$_POST['dk_ayam'],
+                        'dk_kambing'=>$_POST['dk_kambing'],
+                        'dk_campur'=>$_POST['dk_campur'],
                         'd_ayam'=>$_POST['d_ayam'],
                         'd_kambing'=>$_POST['d_kambing'],
                         'd_campur'=>$_POST['d_campur'],
@@ -32,7 +35,8 @@
                         'time'=>$_POST['time'],
                         'link'=>$_POST['link'],
                         'location'=>$_POST['location'],
-                        'remark'=>$_POST['remark']
+                        'remark'=>$_POST['remark'],
+                        'status'=>'unpaid'
                     );
                     $this->db->insert('orders',$data);
 
@@ -55,29 +59,14 @@
             $this->load->library('pagination');
         }
 
-        public function report() {
-            // $id_order = $this->uri->segment(3);
-            // $table = "orders";
-            // $where = array('id' => $id_order);
-            // $this->query_Model->get_specified_row($table,$where);
-
-            // Auto update the past orders
-            // $today = date('Y-m-d');
-            // $table     	= "orders";
-            // $arrayData 	= array(
-            //                 'status' => 'pending',
-            //                 'remark' => 'see location',
-            //             );
-            // $where      = array( 
-            //                 'date <'  => $today
-            //             );
-            // $this->query_Model->update_data($arrayData,$table,$where);
-
-            // $this->session->set_flashdata("success", "");
-            // redirect("order/report", "refresh");
-            
-            // All report orders 
-            $users_record=$this->query_Model->getDataOrders();
+        public function report() {            
+            // All report orders
+            $today = date('Y-m-d');
+            $table ='orders';
+            $where      = array(  'date >='	=> $today);
+            $order_by   = array( 'date','asc');
+            $users_record=$this->query_Model->get_all_rows($table, $where, $order_by); 
+            // $users_record=$this->query_Model->getDataOrders();
             $data['result'] = $users_record; 
             $this->load->view('v_order_report',$data);
         }
@@ -100,7 +89,7 @@
             // $today = date('Y-m-d');
             $table     	= "orders";
             $arrayData 	= array(
-                            'status' => 'suhahahatus',
+                            'status' => 'paid',
                             'date'  => '0000-00-00',
                         );
             $where      = array(  
@@ -113,14 +102,12 @@
         }
 
         public function update_order(){
-            $this->load->database();
-            $this->load->model('query_Model');
-            $this->query_Model->update_row();		
-            // redirect("", "refresh");
-            echo '<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>';
-
-            echo '<script type="text/javascript">sweetAlert("fsafsa !","Ansfm","error")</script>';
-
+            $id_order = $this->uri->segment(3);
+    
+    		$table = "orders";
+    		$where = array('id' => $id_order);
+    		$data['view_data'] = $this->query_Model->get_specified_row($table,$where);
+            $this->load->view('v_order_edit',$data);
         }
 
         public function update_data() {
@@ -138,6 +125,8 @@
             $this->session->set_flashdata("success", "");
             redirect("order/report", "refresh");
         }
+
+
 
         
 

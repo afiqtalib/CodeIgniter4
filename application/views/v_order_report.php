@@ -12,43 +12,58 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.11.5/datatables.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.11.5/datatables.min.js"></script>
-    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' />
+    <!-- <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' /> -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
     <!-- SWEETALERT CDN -->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <!-- LINK DATA TABLE EXPORT -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.2/css/jquery.dataTables.min.css"> 
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.3.4/css/buttons.dataTables.min.css">
 
 </head>
 
 <style>
     body {
-        font-family: Roboto;
+        /* font-family: Roboto; */
+        font-family: 'Open Sans', sans-serif;
         margin: 0;
         width: 100%;
-        background:  #0B5ED7;
+        background: #e36fa8;
     }
 </style>
 
+<script>
+    // JS export BUTTON
+    $(document).ready(function() {
+        $('#example').DataTable({
+            dom: 'Bfrtip',
+            buttons: [
+                'copy','csv', 'pdf', 'print'
+            ]
+        });
+    });
+</script>
+
 <body>
     <div class="container mt-5">
-        <div class="card shadow-lg p-3 mb-5 bg-light rounded" >
-            <div class="">
-            </div>
+        <div class="card shadow-lg p-3 mb-5 bg-light border-0 rounded">
             <div class="card-body">
                 <h5 class="card-title">Orders</h5>
-                <p class="card-text">letak filter range date </p>
 
                 <!-- BEGIN TABLE ORDERS -->
                 <div class="table-responsive">
-                    <table id="example" style="width:100%; color: black;" class="table table-bordered table-hover display" >
-                        <thead class="table-primary">
-                            <tr class="text-dark">
+                    <table id="example" style="width:100%; font-size: 15px;" id="example" class="table table-hover" >
+                        <thead style="background-color: #840844;">
+                            <tr class="text-white">
                                 <th> No. </th>
-                                <th style="width:18%"> Name </th>
+                                <th> Name </th>
                                 <th> Phone </th>
                                 <th style="width:18%"> Order </th>
                                 <th style="width:10%"> Tarikh </th>
                                 <th> Masa </th>
                                 <th> Tempat </th>
-                                <th> Loc </th>
+                                <!-- <th> Loc </th> -->
                                 <th> Remark </th>
                                 <th> Total (RM)</th>
                                 <th> Status </th>
@@ -63,6 +78,10 @@
                                 $count_total_pAyam = 0;
                                 $count_total_pKambing = 0;
                                 $count_total_pCampur = 0;
+
+                                $count_total_dk_Ayam = 0;
+                                $count_total_dk_Kambing = 0;
+                                $count_total_dk_Campur = 0;
 
                                 $count_total_dAyam = 0;
                                 $count_total_dKambing = 0;
@@ -84,6 +103,15 @@
                                         if ($data['p_campur']>0) {
                                             echo "<br> Single Pax - Campur ".$data['p_campur'];
                                         }
+                                        if ($data['dk_ayam']>0) {
+                                            echo "<br> Set 3/4 Dulang - Ayam ".$data['dk_ayam'];
+                                        }
+                                        if ($data['dk_kambing']>0) {
+                                            echo "<br> Set 3/4 Dulang - Kambing ".$data['dk_kambing'];
+                                        }
+                                        if ($data['dk_campur']>0) {
+                                            echo "<br> Set 3/4 Dulang - Campur ".$data['dk_campur'];
+                                        }
                                         if ($data['d_ayam']>0) {
                                             echo "<br> Dulang - Ayam ".$data['d_ayam'];
                                         }
@@ -97,18 +125,20 @@
                                     <td><?php echo $data['date'] ?></td>
                                     <td><?php echo $data['time'] ?></td>
                                     <td><?php echo $data['location'] ?></td>
-                                    <td> <a target='_blank' href=<?php echo $data['link'] ?>> <i class="fas fa-map-marked-alt fa-1x" style="color:#007FFF;"></i> </a></td>
+                                    <!-- <td> <a target='_blank' href=<?php echo $data['link'] ?>> <i class="fas fa-map-marked-alt fa-1x" style="color:#007FFF;"></i> </a></td> -->
                                     <td><?php echo $data['remark'] ?></td>
-                                    <td><?php echo $total =($data['p_ayam']*11)+($data['p_kambing']*17)+($data['p_campur']*20)+($data['d_ayam']*75)+($data['d_kambing']*90)+($data['d_campur']*85) ?></td>
+                                    <td><?php echo $total =($data['p_ayam']*11)+($data['p_kambing']*17)+($data['p_campur']*20)+ ($data['dk_ayam']*50)+($data['dk_kambing']*55)+($data['dk_campur']*53)+($data['d_ayam']*75)+($data['d_kambing']*90)+($data['d_campur']*85) ?></td>
                                     <?php 
-                                        if ($data['status']!='pending') {
+                                        if ($data['status']!='unpaid') {
                                             $status="success";
                                             } else {
-                                            $status="primary";
+                                            $status="warning";
                                             }
                                     ?>
                                     <td> <span class="badge rounded-pill text-bg-<?php echo $status?>"><?php echo $data['status'] ?></span> </td>
-                                    <td><a href="<?php echo site_url('order/update_data/'. $data['id'])?>"> <i class="fas fa-edit fa-lg text-warning"></i> </a> </td>
+                                    <td> <a href="<?php echo site_url('order/update_data/'. $data['id'])?>"><i class="fa-sharp fa-solid fa-pen-to-square"></i> </a> 
+                                    <a href="<?php echo site_url('order/update_order/'. $data['id'])?>"><i class="fa-sharp fa-solid fa-eye"></i> </a>
+                                    </td>
                                 </tr> 
                                 <?php
                                 // SINGLE PACK
@@ -121,7 +151,17 @@
                                 $total_pCampur=$data['p_campur']; 
                                 $count_total_pCampur += $total_pCampur;
 
-                                // DULANG
+                                // set 3/4 DULANG
+                                $total_dk_Ayam=$data['dk_ayam']; 
+                                $count_total_dk_Ayam += $total_dk_Ayam;
+
+                                $total_dk_Kambing=$data['dk_kambing']; 
+                                $count_total_dk_Kambing += $total_dk_Kambing;
+
+                                $total_dk_Campur=$data['dk_campur']; 
+                                $count_total_dk_Campur += $total_dk_Campur;
+
+                                // set 6/7 DULANG
                                 $total_dAyam=$data['d_ayam']; 
                                 $count_total_dAyam += $total_dAyam;
 
@@ -138,150 +178,168 @@
                 <!-- END TABLE ORDERS -->
 
                 <!-- MODAL UPDATE -->
-                
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
-                        <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="exampleModalLabel">Order</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                
-                            <form action="" method="POST" >
-                                <div class="mb-2">
-                                    <label for="recipient-name" class="col-form-label">Customer Name</label>
-                                    <input type="text" class="form-control" name="name" value="" >
-                                </div>
-                                <div class="mb-2">
-                                    <label for="recipient-name" class="col-form-label">Status Order</label><br>
-                                    <input class="form-check-input" type="checkbox" name="status" value="1" id="flexCheckDefault">
-                                    <label class="form-check-label" for="flexCheckDefault">
-                                        Completed
-                                    </label><br>
-                                    <input class="form-check-input" type="checkbox" name="status" value="2" id="flexCheckDefault">
-                                    <label class="form-check-label" for="flexCheckDefault">
-                                        Pending
-                                    </label>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="message-text" class="col-form-label">Message/Remark</label>
-                                    <textarea class="form-control" id="message-text" name="remark" value=""></textarea>
-                                </div>
-                            </form>
-                
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary" name="update">Update</button>
-                        </div>
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Order</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                    
+                                <form action="<?php echo base_url()."team/edit_contact1"?>" method="POST" >
+                                    <div class="mb-2">
+                                        <label for="recipient-name" class="col-form-label">Customer Name</label>
+                                        <input type="text" class="form-control" name="name" value="<?php echo $view['name'];?>" >
+                                    </div>
+                                    <div class="mb-2">
+                                        <label for="recipient-name" class="col-form-label">Status Order</label><br>
+                                        <input class="form-check-input" type="checkbox" name="status" value="1" id="flexCheckDefault">
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                            Completed
+                                        </label><br>
+                                        <input class="form-check-input" type="checkbox" name="status" value="2" id="flexCheckDefault">
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                            Pending
+                                        </label>
+                                    </div>
+                                    <div class="mb-2">
+                                        <select class="form-select" aria-label="Default select example">
+                                            <option selected>Status Order</option>
+                                            <option value="1">Unpaid</option>
+                                            <option value="2">Paid</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="message-text" class="col-form-label">Message/Remark</label>
+                                        <textarea class="form-control" id="message-text" name="remark" value=""></textarea>
+                                    </div>
+                                </form>
+                    
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary" name="update">Update</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                    style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
-                    Modal
-                </button>
-                <a name="update" class="btn btn-sm btn-warning" href="<?php echo site_url('order/update_order1'); ?>"                         
-                    style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem; color:black;">
-                    Update data
-                </a>
 
                 <?php   if (isset($_SESSION['success'])) { 
                     echo '<script type="text/javascript">sweetAlert("Update !","Order anda Berjaya Update","success")</script>';
                 }
                 ?>
+            <!-- </div>   -->
 
-            </div>  
+                <div class="card-footer fw-bold">
+                    <div class="row px-4">
+                        <div class="col-md-3">
+                            <ul class="">
+                                <h5>SINGLE PAX</h5>
+                                <li class=" d-flex justify-content-between align-items-center">
+                                    Ayam
+                                    <span class="badge bg-primary rounded-pill"><?php echo $count_total_pAyam ?></span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    Kambing
+                                    <span class="badge bg-primary rounded-pill"><?php echo $count_total_pKambing ?></span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    Campur
+                                    <span class="badge bg-primary rounded-pill"><?php echo $count_total_pCampur?></span>
+                                </li>
+                            </ul>
+                            
+                            <?php
+                                echo str_repeat('&nbsp;', 8);
+                            ?> 
+                        </div>
+                        <div class="col-md-3">
+                            <ul class="">
+                                <h5>Set 3/4 DULANG</h5>
+                                <li class=" d-flex justify-content-between align-items-center">
+                                    Ayam
+                                    <span class="badge bg-primary rounded-pill"><?php echo $count_total_dk_Ayam ?></span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    Kambing
+                                    <span class="badge bg-primary rounded-pill"><?php echo $count_total_dk_Kambing ?></span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    Campur
+                                    <span class="badge bg-primary rounded-pill"><?php echo $count_total_dk_Campur?></span>
+                                </li>
+                            </ul>
+                            <?php
+                                // echo "DULANG <br>";
+                                // echo "Ayam : ". $count_total_dAyam;
+                                // echo "<br>"; 
+                                // echo "Kambing : ". $count_total_dKambing;
+                                // echo "<br>"; 
+                                // echo "Campur : ". $count_total_dCampur;
+                            ?> 
+                        </div>
+                        <div class="col-md-3">
+                            <ul class="">
+                                <h5> <i class="fa fa-concierge-bell"></i> Set 6/7 DULANG</h5>
+                                <li class=" d-flex justify-content-between align-items-center">
+                                    Ayam
+                                    <span class="badge bg-primary rounded-pill"><?php echo $count_total_dAyam ?></span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    Kambing
+                                    <span class="badge bg-primary rounded-pill"><?php echo $count_total_dKambing ?></span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    Campur
+                                    <span class="badge bg-primary rounded-pill"><?php echo $count_total_dCampur?></span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-3 text-success text-center">
+                            <?php 
+                                $totPriceAyam = $count_total_pAyam*11.00;
+                                $totPriceKambing = $count_total_pKambing*17.00;
+                                $totPriceCampur = $count_total_pCampur*20.00;
 
-            <div class="card-footer fw-bold">
-                <div class="row px-4">
-                    <div class="col-md-3">
-                        <ul class="">
-                            <h5>SINGLE PAX</h5>
-                            <li class=" d-flex justify-content-between align-items-center">
-                                Ayam
-                                <span class="badge bg-primary rounded-pill"><?php echo $count_total_pAyam ?></span>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                Kambing
-                                <span class="badge bg-primary rounded-pill"><?php echo $count_total_pKambing ?></span>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                Campur
-                                <span class="badge bg-primary rounded-pill"><?php echo $count_total_pCampur?></span>
-                            </li>
-                        </ul>
-                        
-                        <?php
-                            echo str_repeat('&nbsp;', 8);
-                            // echo "SINGLE PAX <br>";
-                            // echo "Ayam : ". $count_total_pAyam;
-                            // echo "<br>"; 
-                            // echo "Kambing : ". $count_total_pKambing;
-                            // echo "<br>"; 
-                            // echo "Campur : ". $count_total_pCampur;
-                        ?> 
-                    </div>
-                    <div class="col-md-3">
-                    <ul class="">
-                            <h5>DULANG</h5>
-                            <li class=" d-flex justify-content-between align-items-center">
-                                Ayam
-                                <span class="badge bg-primary rounded-pill"><?php echo $count_total_dAyam ?></span>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                Kambing
-                                <span class="badge bg-primary rounded-pill"><?php echo $count_total_dKambing ?></span>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                Campur
-                                <span class="badge bg-primary rounded-pill"><?php echo $count_total_dCampur?></span>
-                            </li>
-                        </ul>
-                        <?php
-                            // echo "DULANG <br>";
-                            // echo "Ayam : ". $count_total_dAyam;
-                            // echo "<br>"; 
-                            // echo "Kambing : ". $count_total_dKambing;
-                            // echo "<br>"; 
-                            // echo "Campur : ". $count_total_dCampur;
-                        ?> 
-                    </div>
-                    <div class="col-md-6 text-success text-center">
-                        <?php 
-                            $totPriceAyam = $count_total_pAyam*11.00;
-                            $totPriceKambing = $count_total_pKambing*17.00;
-                            $totPriceCampur = $count_total_pCampur*20.00;
+                                $totPrice_dk_Ayam = $count_total_dk_Ayam*50.00;
+                                $totPrice_dk_Kambing = $count_total_dk_Kambing*55.00;
+                                $totPrice_dk_Campur = $count_total_dk_Campur*53.00;
 
-                            $totPricedAyam = $count_total_dAyam*75.00;
-                            $totPricedKambing = $count_total_dKambing*90.00;
-                            $totPricedCampur = $count_total_dCampur*85.00;
+                                $totPricedAyam = $count_total_dAyam*75.00;
+                                $totPricedKambing = $count_total_dKambing*90.00;
+                                $totPricedCampur = $count_total_dCampur*85.00;
 
-                            $totalSales = $totPriceAyam + $totPriceKambing + $totPriceCampur + $totPricedAyam + $totPricedKambing + $totPricedCampur; 
-                            echo "<h1 class='fw-bold'> TOTAL SALES : RM". number_format($totalSales,2) .'</h1>';
-                        ?>
-                        <h3></h3>
+                                $totalSales = $totPriceAyam + $totPriceKambing + $totPriceCampur + $totPrice_dk_Ayam + $totPrice_dk_Kambing + $totPrice_dk_Campur + $totPricedAyam + $totPricedKambing + $totPricedCampur; 
+                                echo "<h3 class='fw-bold'> TOTAL SALES : RM". number_format($totalSales,2) .'</h3>';
+                            ?>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
         <!-- echo (strlen($abu)>150)?substr($post['content'],0,150).'...':$post['content']; ?> -->
-<details>
-    <summary>Description</summary>
-    <p>
-        <?php 
-            $abu="The Model represents your data structures. Typically, your model classes will contr, aocess the HTTP request and generate a web page";
-            echo $abu;
-        ?>
-    </p>
-</details>
-<!-- <p><?php echo (strlen($abu)>50)?substr($abu,0,50).'...':$abu;?></p> -->
-        
+        <details>
+            <summary>Description</summary>
+            <p>
+                <?php 
+                    $abu="The Model represents your data structures. Typically, your model classes will contr, aocess the HTTP request and generate a web page";
+                    echo $abu;
+                ?>
+            </p>
+        </details>
+        <!-- <p><?php echo (strlen($abu)>50)?substr($abu,0,50).'...':$abu;?></p> -->
         
     </div>
+    </div>
+
+
+    <!-- IMORT JQUERY -->
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <!-- JS DATATABLE -->
+    <script type="text/javascript" src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/2.3.4/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/2.3.4/js/buttons.html5.min.js"></script>
     
 </body>
 </html>

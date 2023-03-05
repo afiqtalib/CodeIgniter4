@@ -198,10 +198,10 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="d-flex justify-content-between">
-                                    <div>
+                                    <div class="col-lg-3">
                                         <p class="text-dark">Ayam</p>
                                     </div>
-                                    <div>
+                                    <div class="col-lg-3">
                                         <p class="text-dark font-weight-bold">RM 11.00</p>
                                     </div>
                                     <div class="input-group w-auto justify-content-end align-items-center">
@@ -213,10 +213,10 @@
                             </div>
                             <div class="col-lg-12">
                                 <div class="d-flex justify-content-between">
-                                    <div>
+                                    <div class="col-lg-3">
                                         <p class="text-dark">Kambing</p>
                                     </div>
-                                    <div>
+                                    <div class="col-lg-3">
                                         <p class="text-dark font-weight-bold">RM 17.00</p>
                                     </div>
                                     <div class="input-group w-auto justify-content-end align-items-center">
@@ -228,10 +228,10 @@
                             </div>
                             <div class="col-lg-12">
                                 <div class="d-flex justify-content-between">
-                                    <div>
+                                    <div class="col-lg-3">
                                         <p class="text-dark">Campur</p>
                                     </div>
-                                    <div>
+                                    <div class="col-lg-3">
                                         <p class="text-dark font-weight-bold">RM 20.00</p>
                                     </div>
                                     <div class="input-group w-auto justify-content-end align-items-center">
@@ -245,7 +245,62 @@
                         
                     </div>
 
-                    <!-- SET DULANG  -->
+                    <!-- SET 3/4 DULANG  -->
+                    <div class="form-group mb-3">
+                        <div class="mb-4 border-bottom pb-2">
+                            <h5 class="mb-0"> <i class="fa fa-utensils"></i> Set 3/4 Dulang</h5>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="d-flex justify-content-between">
+                                    <div class="col-lg-3">
+                                        <p class="text-dark">Ayam</p>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <p class="text-dark font-weight-bold">RM 50.00</p>
+                                    </div>
+                                    <div class="input-group w-auto justify-content-end align-items-center">
+                                        <input type="button" value="-" class="button-minus border rounded-circle  icon-shape icon-sm mx-1 " data-field="quantity">
+                                        <input type="number" step="1" min="0" max="10" value="0" name="dk_ayam" class="quantity-field border-0 text-center w-25">
+                                        <input type="button" value="+" class="button-plus border rounded-circle icon-shape icon-sm " data-field="quantity">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="d-flex justify-content-between">
+                                    <div class="col-lg-3">
+                                        <p class="text-dark">Kambing</p>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <p class="text-dark font-weight-bold">RM 55.00</p>
+                                    </div>
+                                    <div class="input-group w-auto justify-content-end align-items-center">
+                                        <input type="button" value="-" class="button-minus border rounded-circle  icon-shape icon-sm mx-1 " data-field="quantity">
+                                        <input type="number" step="1" min="0" max="10" value="0" name="dk_kambing" class="quantity-field border-0 text-center w-25">
+                                        <input type="button" value="+" class="button-plus border rounded-circle icon-shape icon-sm " data-field="quantity">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="d-flex justify-content-between">
+                                    <div class="col-lg-3">
+                                        <p class="text-dark">Campur</p>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <p class="text-dark font-weight-bold">RM 53.00</p>
+                                    </div>
+                                    <div class="input-group w-auto justify-content-end align-items-center">
+                                        <input type="button" value="-" class="button-minus border rounded-circle  icon-shape icon-sm mx-1 " data-field="quantity">
+                                        <input type="number" step="1" min="0" max="10" value="0" name="dk_campur" class="quantity-field border-0 text-center w-25">
+                                        <input type="button" value="+" class="button-plus border rounded-circle icon-shape icon-sm " data-field="quantity">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                    <!-- SET 6/7 DULANG  -->
                     <div class="form-group mb-3">
                         <div class="mb-4 border-bottom pb-2">
                             <h5 class="mb-0"> <i class="fa fa-utensils"></i> Set 6/7 Dulang</h5>
@@ -253,10 +308,10 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="d-flex justify-content-between">
-                                    <div>
+                                    <div class="col-lg-3">
                                         <p class="text-dark">Ayam</p>
                                     </div>
-                                    <div>
+                                    <div class="col-lg-3">
                                         <p class="text-dark font-weight-bold">RM 75.00</p>
                                     </div>
                                     <div class="input-group w-auto justify-content-end align-items-center">
@@ -268,10 +323,10 @@
                             </div>
                             <div class="col-lg-12">
                                 <div class="d-flex justify-content-between">
-                                    <div>
+                                    <div class="col-lg-3">
                                         <p class="text-dark">Kambing</p>
                                     </div>
-                                    <div>
+                                    <div class="col-lg-3">
                                         <p class="text-dark font-weight-bold">RM 90.00</p>
                                     </div>
                                     <div class="input-group w-auto justify-content-end align-items-center">
@@ -283,10 +338,10 @@
                             </div>
                             <div class="col-lg-12">
                                 <div class="d-flex justify-content-between">
-                                    <div>
+                                    <div class="col-lg-3">
                                         <p class="text-dark">Campur</p>
                                     </div>
-                                    <div>
+                                    <div class="col-lg-3">
                                         <p class="text-dark font-weight-bold">RM 85.00</p>
                                     </div>
                                     <div class="input-group w-auto justify-content-end align-items-center">
@@ -311,7 +366,8 @@
                         <div class="form-group mb-3 col-lg-6">
                             <label for="" class="label-default px-2"><i class="fa fa-clock"></i>Masa</label>
                             <p><small>Delivery time (12:00PM - 6:00PM)</small></p>
-                            <select name="time" id="gender" class="form-control box-text">
+                            <input type="time" id="appt" name="time" min="12:00" max="18:00" class="form-control box-text" required>
+                            <!-- <select name="time" id="gender" class="form-control box-text">
                                 <option value="">Pilih masa delivery</option>
                                 <option value="1">12:00 PM</option>
                                 <option value="2">02:00 PM </option>
@@ -319,7 +375,7 @@
                                 <option value="4">04:00 PM</option>
                                 <option value="5">05:00 PM</option>
                                 <option value="6">06:00 PM</option>
-                            </select>
+                            </select> -->
                         </div>
                     </div>
 
