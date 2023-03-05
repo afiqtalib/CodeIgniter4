@@ -23,7 +23,7 @@
         font-family: Roboto;
         margin: 0;
         width: 100%;
-        background: #840844;
+        background:  #0B5ED7;
     }
 </style>
 
@@ -52,7 +52,7 @@
                                 <th> Remark </th>
                                 <th> Total (RM)</th>
                                 <th> Status </th>
-                                <th style="width:2%">A</th>
+                                <th style="width:2%">Action</th>
                             </tr>
                         </thead>
                         <tbody>
