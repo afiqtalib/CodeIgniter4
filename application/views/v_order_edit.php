@@ -182,35 +182,125 @@
                     <div class="modal-dialog">
                         <div class="modal-content">
                         <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="exampleModalLabel">Order</h1>
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Order #<?php echo $view_data['id'];?></h1>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
                 
-                            <form action="<?php echo base_url()."team/edit_contact1"?>" method="POST" >
+                            <form action="<?php echo base_url()."team/update"?>" method="POST" >
+                                <div class="row mb-3">
+                                    <div class="col-6">
+                                        <label for="recipient-name" class="col-form-label">Customer</label>
+                                        <input type="text" class="form-control" name="name" value="<?php echo $view_data['name'];?>" >
+                                    </div>
+                                    <div class="col-6">
+                                        <label for="recipient-name" class="col-form-label">Phone</label>
+                                        <input type="text" class="form-control" name="phone" value="<?php echo $view_data['phone'];?>" >
+                                    </div>
+                                </div>
+                                <!-- SINGLE PACK -->
+                                <div class="form-group mb-3">
+                                    <div class="mb-2 border-bottom pb-2">
+                                        <h6 class="mb-0"> <i class="fa fa-concierge-bell"></i> Single Pack</h6>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="d-flex justify-content-between">
+                                                <div class="col-lg-3">
+                                                    <p class="text-dark">Ayam</p>
+                                                </div>
+                                                <div class="col-lg-3">
+                                                    <p class="text-dark font-weight-bold">RM 11.00</p>
+                                                </div>
+                                                <div class="input-group w-auto justify-content-end align-items-center">
+                                                    <input type="button" value="-" class="button-minus border rounded-circle  icon-shape icon-sm mx-1 " data-field="quantity">
+                                                    <input type="number" step="1" min="0" max="10" value="0" name="p_ayam" class="quantity-field border-0 text-center w-25">
+                                                    <input type="button" value="+" class="button-plus border rounded-circle icon-shape icon-sm " data-field="quantity">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="d-flex justify-content-between">
+                                                <div class="col-lg-3">
+                                                    <p class="text-dark">Kambing</p>
+                                                </div>
+                                                <div class="col-lg-3">
+                                                    <p class="text-dark font-weight-bold">RM 17.00</p>
+                                                </div>
+                                                <div class="input-group w-auto justify-content-end align-items-center">
+                                                    <input type="button" value="-" class="button-minus border rounded-circle  icon-shape icon-sm mx-1 " data-field="quantity">
+                                                    <input type="number" step="1" min="0" max="10" value="0" name="p_kambing" class="quantity-field border-0 text-center w-25">
+                                                    <input type="button" value="+" class="button-plus border rounded-circle icon-shape icon-sm " data-field="quantity">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="d-flex justify-content-between">
+                                                <div class="col-lg-3">
+                                                    <p class="text-dark">Campur</p>
+                                                </div>
+                                                <div class="col-lg-3">
+                                                    <p class="text-dark font-weight-bold">RM 20.00</p> <?php echo $view_data['p_campur'];?>
+                                                </div>
+                                                <div class="input-group w-auto justify-content-end align-items-center col-lg-3">
+                                                    <input type="button" value="-" class="button-minus border rounded-circle  icon-shape icon-sm mx-1 " data-field="quantity">
+                                                    <input type="number" step="1" min="0" max="10" value="0" name="p_campur" value="<?php echo $view_data['p_campur'];?>" class="quantity-field border-3 text-center w-50">
+                                                    <input type="button" value="-" class="button-minus border rounded-circle  icon-shape icon-sm mx-1 " data-field="quantity">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+
+                                <div class="row">
+                                    <div class="form-group mb-3 col-lg-6">
+                                        <label for="" class="label-default px-2"><i class="fa fa-calendar"></i> <?php echo '&nbsp';?> Tarikh</label>
+                                        <p><small>Tempahan awal sehari</small></p>
+                                        <input type="date" class="form-control box-text" name="date"
+                                        mindate="tomorrow" min="<?php echo date("Y-m-d", strtotime("+1 day")); ?>" value="<?php echo $view_data['date'];?>"> 
+                                    </div>
+
+                                    <div class="form-group mb-3 col-lg-6">
+                                        <label for="" class="label-default px-2"><i class="fa fa-clock"></i> <?php echo '&nbsp';?> Masa</label>
+                                        <p><small>Delivery time (12:00PM - 6:00PM)</small></p>
+                                        <input type="time" id="appt" name="time" value="<?php echo $view_data['time'];?>" min="12:00" max="18:00" class="form-control box-text" required>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <div class="col-7">
+                                        <label for="" class="label-default col-form-label"><i class="fa fa-location-arrow"></i>Kawasan Penghantaran</label>
+                                        <select name="location" id="gender" class="form-select box-text">
+                                            <option value=""> <?php echo $view_data['location'];?></option>
+                                            <option value="1">Kota Bharu</option>
+                                            <option value="2">Kubang Kerian</option>
+                                            <option value="3">Pengkalan Chepa</option>
+                                            <option value="4">Peringat</option>
+                                            <option value="5">Pasir Tumboh</option>
+                                            <option value="6">PCB</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-5">
+                                        <label for="recipient-name" class="col-form-label">Status</label>
+                                        <select class="form-select" aria-label="Default select example">
+                                            <option selected><?php echo $view_data['status'];?></option>
+                                            <option value="unpaid">Unpaid</option>
+                                            <option value="paid">Paid</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            
                                 <div class="mb-2">
-                                    <label for="recipient-name" class="col-form-label">Customer Name</label>
-                                    <input type="text" class="form-control" name="name" value="<?php echo $view_data['name'];?>" >
-                                </div>
-                                <div class="mb-2">
-                                </div>
-                                <div class="mb-2">
-                                    <select class="form-select" aria-label="Default select example">
-                                        <option selected>Status Order</option>
-                                        <option value="1">Unpaid</option>
-                                        <option value="2">Paid</option>
-                                    </select>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="message-text" class="col-form-label">Message/Remark</label>
-                                    <textarea class="form-control" id="message-text" name="remark" value="<?php echo $view_data['remark'];?>"></textarea>
-                                </div>
+                                    <label for="" class="label-default px-2">Remark</label>
+                                    <textarea type="text" name="remark" value="<?php echo $view_data['remark'];?>" class="form-control"  cols="30" rows="2"><?php echo $view_data['remark'];?></textarea>
+                                </div> 
                             </form>
                 
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary" name="update">Update</button>
+                            <button type="button" class="btn btn-primary" name="update">Edit</button>
                         </div>
                         </div>
                     </div>
@@ -224,6 +314,10 @@
                     style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem; color:black;">
                     Update view_data
                 </a>
+                <a name="update" class="btn btn-sm btn-secondary text-light" href="<?php echo site_url('order/report'); ?>"                         
+                    style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem; color:black;">
+                    Back
+                </a>
 
                 <?php   if (isset($_SESSION['success'])) { 
                     echo '<script type="text/javascript">sweetAlert("Update !","Order anda Berjaya Update","success")</script>';
@@ -232,7 +326,7 @@
 
             </div>  
 
-            <div class="card-footer fw-bold">
+            <!-- <div class="card-footer fw-bold">
                 <div class="row px-4">
                     <div class="col-md-3">
                         <ul class="">
@@ -295,7 +389,7 @@
                         <h3></h3>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
 
         <!-- echo (strlen($abu)>150)?substr($post['content'],0,150).'...':$post['content']; ?> -->

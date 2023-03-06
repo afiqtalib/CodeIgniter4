@@ -104,7 +104,7 @@
         public function update_order(){
             $id_order = $this->uri->segment(3);
     
-    		$table = "orders";
+    		$table = 'orders';
     		$where = array('id' => $id_order);
     		$data['view_data'] = $this->query_Model->get_specified_row($table,$where);
             $this->load->view('v_order_edit',$data);
@@ -115,7 +115,7 @@
             $id_order = $this->uri->segment(3);
             $table     	= "orders";
             $arrayData 	= array(
-                            'status' => 'delivered',
+                            'status' => 'paid',
                         );
             $where      = array(  
                             'id'	=> $id_order

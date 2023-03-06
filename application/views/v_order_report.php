@@ -136,8 +136,9 @@
                                             }
                                     ?>
                                     <td> <span class="badge rounded-pill text-bg-<?php echo $status?>"><?php echo $data['status'] ?></span> </td>
-                                    <td> <a href="<?php echo site_url('order/update_data/'. $data['id'])?>"><i class="fa-sharp fa-solid fa-pen-to-square"></i> </a> 
-                                    <a href="<?php echo site_url('order/update_order/'. $data['id'])?>"><i class="fa-sharp fa-solid fa-eye"></i> </a>
+                                    <td> 
+                                        <a href="<?php echo site_url('order/update_order/'. $data['id'])?>"><i class="fa-sharp fa-solid fa-eye"></i> </a>
+                                        <a href="<?php echo site_url('order/update_data/'. $data['id'])?>"><i class="fa-sharp fa-solid fa-pen-to-square text-warning"></i> </a>
                                     </td>
                                 </tr> 
                                 <?php
@@ -235,7 +236,7 @@
                     <div class="row px-4">
                         <div class="col-md-3">
                             <ul class="">
-                                <h5>SINGLE PAX</h5>
+                                <h5> <i class="fa fa-utensils"></i> SINGLE PAX</h5>
                                 <li class=" d-flex justify-content-between align-items-center">
                                     Ayam
                                     <span class="badge bg-primary rounded-pill"><?php echo $count_total_pAyam ?></span>
@@ -256,7 +257,7 @@
                         </div>
                         <div class="col-md-3">
                             <ul class="">
-                                <h5>Set 3/4 DULANG</h5>
+                                <h5> <i class="fa fa-concierge-bell"></i> Set 3/4 DULANG</h5>
                                 <li class=" d-flex justify-content-between align-items-center">
                                     Ayam
                                     <span class="badge bg-primary rounded-pill"><?php echo $count_total_dk_Ayam ?></span>

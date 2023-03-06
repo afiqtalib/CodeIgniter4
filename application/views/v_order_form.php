@@ -53,19 +53,6 @@
             }
         }   
 
-        /* .register
-        {
-            max-width: 85%;            
-            background: #fff;
-            position: relative;
-            font-family: 'Inter', sans-serif;
-            padding: 10px;
-            margin: 5% auto;
-            -webkit-box-shadow: 0px 50px 100px 0px rgba(64, 1, 4, 0.5), 0px -6px 0px 0px rgba(248, 99, 107, 0.04);
-            box-shadow: 0px 25px 50px 0px rgba(64, 1, 4, 0.5), 0px -6px 0px 0px rgba(248, 99, 107, 0.004);
-            border-radius: 20px;
-        } */
-
         .box-container{
             float:center;
             background: #fff;
@@ -141,7 +128,7 @@
     </script>
 
   <body>    
-    <div class="container card col-xl-6 col-lg-6 col-md-9 mt-4">
+    <div class="container card col-xl-5 col-lg-6 col-md-9 mt-4">
         <div class="text-center pt-4">
             <h6 class="h3 text-red-900 "><img src="<?php echo base_url('assets/image/iman-catering.png');?>" alt="logo" width="40%"></h6>
             <h6 class="h6 text-black-900 mb-3">Hi pelanggan Iman Catering, Anda boleh order sekarang!</h6>
