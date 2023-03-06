@@ -193,7 +193,7 @@
                                     </div>
                                     <div class="input-group w-auto justify-content-end align-items-center">
                                         <input type="button" value="-" class="button-minus border rounded-circle  icon-shape icon-sm mx-1 " data-field="quantity">
-                                        <input type="number" step="1" min="0" max="10" value="0" name="p_ayam" class="quantity-field border-0 text-center w-25">
+                                        <input type="number" step="1" min="0" max="100" value="0" name="p_ayam" class="quantity-field border-0 text-center w-25">
                                         <input type="button" value="+" class="button-plus border rounded-circle icon-shape icon-sm " data-field="quantity">
                                     </div>
                                 </div>
@@ -208,7 +208,7 @@
                                     </div>
                                     <div class="input-group w-auto justify-content-end align-items-center">
                                         <input type="button" value="-" class="button-minus border rounded-circle  icon-shape icon-sm mx-1 " data-field="quantity">
-                                        <input type="number" step="1" min="0" max="10" value="0" name="p_kambing" class="quantity-field border-0 text-center w-25">
+                                        <input type="number" step="1" min="0" max="100" value="0" name="p_kambing" class="quantity-field border-0 text-center w-25">
                                         <input type="button" value="+" class="button-plus border rounded-circle icon-shape icon-sm " data-field="quantity">
                                     </div>
                                 </div>
@@ -223,7 +223,7 @@
                                     </div>
                                     <div class="input-group w-auto justify-content-end align-items-center">
                                         <input type="button" value="-" class="button-minus border rounded-circle  icon-shape icon-sm mx-1 " data-field="quantity">
-                                        <input type="number" step="1" min="0" max="10" value="0" name="p_campur" class="quantity-field border-0 text-center w-25">
+                                        <input type="number" step="1" min="0" max="100" value="0" name="p_campur" class="quantity-field border-0 text-center w-25">
                                         <input type="button" value="+" class="button-plus border rounded-circle icon-shape icon-sm " data-field="quantity">
                                     </div>
                                 </div>

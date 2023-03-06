@@ -29,12 +29,19 @@
 		<div id="digital-clock"></div>
 		
 		<div class="offcanvas-body">
-			<div>
-				sidebar
-				<li><a href="<?php echo base_url()."index.php/order"?>"><span class="nav-label">Order</span></a></li>
-				<li><a href="<?php echo base_url()."index.php/order/report"?>"><span class="nav-label">Report</span></a></li>                	
-				<a href="<?php echo base_url()."index.php/order/updateData"?>"><span class="nav-label btn btn-sm btn-outline-primary mt-3">Update</span></a>     	
-			</div>
+			<ul class="list-unstyled">
+				<li>
+					<a href="<?php echo base_url()."index.php/order"?>"><span class="nav-label nav-bar h3">
+						<i class="fa-solid fa-square-plus"></i> Order Form</span>
+					</a>
+				</li>
+				<li>
+					<a href="<?php echo base_url()."index.php/order/report"?>"><span class="nav-label nav-bar h3">
+					<i class="fa-solid fa-file"></i> Report</span>
+					</a>
+				</li>                	
+				<!-- <a href="<?php echo base_url()."index.php/order/updateData"?>"><span class="nav-label btn btn-sm btn-outline-primary mt-3">Update</span></a>     	 -->
+			</ul>
 		</div>
 	</div>
 </div>
@@ -78,5 +85,22 @@
 		color: #660000;
 		text-align: center;
 		font-weight: bolder;
+	}
+
+	.nav-bar {
+		color: #660000;
+		background-color: #ECC9C9;
+		padding: 25px;
+		display: block;
+		width: 100%;
+		border: yellow;
+		border-radius: 10px;
+		font-size: 20px;
+		font-weight: bolder;
+		text-align: center;
+	}
+	a {
+		text-decoration: none !important;
+		cursor:pointer;  
 	}
 </style>
