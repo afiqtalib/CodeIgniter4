@@ -320,6 +320,40 @@
                 </div>
             </div>
 
+            <table class="table bg-white">
+                <thead>
+                    <tr>
+                        <th scope="col">Tarikh</th>
+                        <th scope="col"> Pax - AYAM </th>
+                        <th scope="col"> Pax - KAMBING</th>
+                        <th scope="col"> Pax - Campur</th>
+                        <th scope="col"> 3/4 - AYAM </th>
+                        <th scope="col"> 3/4 - KAMBING</th>
+                        <th scope="col"> 3/4 - Campur</th>
+                        <th scope="col"> 6/7 - AYAM </th>
+                        <th scope="col"> 6/7 - KAMBING</th>
+                        <th scope="col"> 6/7 - Campur</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php 
+                        foreach ($dashboard as $p) {
+                    ?>
+                    <tr>
+                        <th scope="row"><?php echo $p['date'] ?></th>
+                        <td><?php echo $p['total_Payam'] ?></td>
+                        <td><?php echo $p['total_Pkambing'] ?></td>
+                        <td><?php echo $p['total_Pcampur'] ?></td>
+                        <td><?php echo $p['total_Dkayam'] ?></td>
+                        <td><?php echo $p['total_Dkkambing'] ?></td>
+                        <td><?php echo $p['total_Dkcampur'] ?></td>
+                        <td><?php echo $p['total_Dayam'] ?></td>
+                        <td><?php echo $p['total_Dkambing'] ?></td>
+                        <td><?php echo $p['total_Dcampur'] ?></td>
+                    </tr>
+                    <?php } ?> 
+                </tbody>
+            </table>
         <!-- echo (strlen($abu)>150)?substr($post['content'],0,150).'...':$post['content']; ?> -->
         <details>
             <summary>Description</summary>

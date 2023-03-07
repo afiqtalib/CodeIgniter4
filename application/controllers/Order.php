@@ -69,8 +69,7 @@
             $users_record=$this->query_Model->get_all_rows($table, $where, $order_by); 
             // $users_record=$this->query_Model->getDataOrders();
             $data['result'] = $users_record; 
-            // $data['total_ayam']=$this->query_Model->count_order();
-            // $data['total_kambing']=$this->query_Model->count_order();  
+            $data['dashboard']=$this->query_Model->count_order();
             $this->load->view('v_order_report',$data);
         }
 
