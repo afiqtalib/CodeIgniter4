@@ -156,6 +156,24 @@
                                 <hr>
                                 <div class="row">
                                     <div class="col-sm-3">
+                                        <p class="mb-0">Payment</p>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <p class="text-muted mb-0">
+                                            <?php 
+                                                if ($view_data['pay_type']=='1') {
+                                                    echo "Cash";
+                                                    } 
+                                                else if ($view_data['pay_type']=='2') {
+                                                    echo "Transfer";
+                                                    }
+                                            ?>
+                                        </p>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-sm-3">
                                         <p class="mb-0">Status Order</p>
                                     </div>
                                     <div class="col-sm-9">
@@ -187,7 +205,7 @@
                         </div>
                         <div class="modal-body">
                 
-                            <form action="<?php echo base_url()."team/update"?>" method="POST" >
+                            <form action="<?php echo base_url()."order/update_order"?>" method="POST" >
                                 <div class="row mb-3">
                                     <div class="col-6">
                                         <label for="recipient-name" class="col-form-label">Customer</label>
@@ -269,8 +287,8 @@
                                 </div>
 
                                 <div class="row mb-3">
-                                    <div class="col-7">
-                                        <label for="" class="label-default col-form-label"><i class="fa fa-location-arrow"></i>Kawasan Penghantaran</label>
+                                    <div class="col-4">
+                                        <label for="" class="label-default col-form-label"><i class="fa fa-location-arrow"></i>Delivery Area</label>
                                         <select name="location" id="gender" class="form-select box-text">
                                             <option value=""> <?php echo $view_data['location'];?></option>
                                             <option value="1">Kota Bharu</option>
@@ -281,7 +299,15 @@
                                             <option value="6">PCB</option>
                                         </select>
                                     </div>
-                                    <div class="col-5">
+                                    <div class="col-4">
+                                        <label for="" class="label-default col-form-label">Payment</label>
+                                        <select name="location" id="gender" class="form-select box-text">
+                                            <option value=""> <?php echo $view_data['pay_type'];?></option>
+                                            <option value="1">Cash</option>
+                                            <option value="2">Transfer</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-4">
                                         <label for="recipient-name" class="col-form-label">Status</label>
                                         <select class="form-select" aria-label="Default select example">
                                             <option selected><?php echo $view_data['status'];?></option>
@@ -300,7 +326,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary" name="update">Edit</button>
+                            <button type="button" class="btn btn-primary" name="kemaskini">Edit</button>
                         </div>
                         </div>
                     </div>

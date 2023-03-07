@@ -347,7 +347,7 @@
                             <label for="" class="label-default px-2"><i class="fa fa-calendar"></i>Tarikh</label>
                             <p><small>Tempahan awal sehari</small></p>
                             <input type="date" class="form-control box-text" name="date"
-                            mindate="tomorrow" min="<?php echo date("Y-m-d", strtotime("+1 day")); ?>" placeholder="MM/DD/YYYY">
+                            mindate="tomorrow" min="<?php echo date("Y-m-d", strtotime("+0 day")); ?>" placeholder="MM/DD/YYYY">
                         </div>
 
                         <div class="form-group mb-3 col-lg-6">

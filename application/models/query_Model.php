@@ -36,6 +36,13 @@ class query_Model extends CI_Model
         $this->db->update($tableToUpdate, $columnToUpdate);
     }
 
+    /* DELETE DATA */
+	 
+    function delete_data($table, $where){
+        $this->db->where($where);
+        $this->db->delete($table);
+    }
+
     /* SELECT ALL ROWS */
 	
 	function get_all_rows($table, $where = false, $order_by = false, $like = false, $group_by = false)

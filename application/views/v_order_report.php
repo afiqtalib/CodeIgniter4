@@ -104,22 +104,22 @@
                                             echo "<br> Single Pax - Campur ".$data['p_campur'];
                                         }
                                         if ($data['dk_ayam']>0) {
-                                            echo "<br> Set 3/4 Dulang - Ayam ".$data['dk_ayam'];
+                                            echo "<br> Set 3/4 - Ayam ".$data['dk_ayam'];
                                         }
                                         if ($data['dk_kambing']>0) {
-                                            echo "<br> Set 3/4 Dulang - Kambing ".$data['dk_kambing'];
+                                            echo "<br> Set 3/4 - Kambing ".$data['dk_kambing'];
                                         }
                                         if ($data['dk_campur']>0) {
-                                            echo "<br> Set 3/4 Dulang - Campur ".$data['dk_campur'];
+                                            echo "<br> Set 3/4 - Campur ".$data['dk_campur'];
                                         }
                                         if ($data['d_ayam']>0) {
-                                            echo "<br> Dulang - Ayam ".$data['d_ayam'];
+                                            echo "<br> Set 6/7 - Ayam ".$data['d_ayam'];
                                         }
                                         if ($data['d_kambing']>0) {
-                                            echo "<br> Dulang - Kambing ".$data['d_kambing'];
+                                            echo "<br> Set 6/7 - Kambing ".$data['d_kambing'];
                                         }
                                         if ($data['d_campur']>0) {
-                                            echo "<br> Dulang - Campur ".$data['d_campur'];
+                                            echo "<br> Set 6/7 - Campur ".$data['d_campur'];
                                         } ?>
                                     </td>
                                     <td><?php echo $data['date'] ?></td>
@@ -139,6 +139,7 @@
                                     <td> 
                                         <a href="<?php echo site_url('order/update_order/'. $data['id'])?>"><i class="fa-sharp fa-solid fa-eye"></i> </a>
                                         <a href="<?php echo site_url('order/update_data/'. $data['id'])?>"><i class="fa-sharp fa-solid fa-pen-to-square text-warning"></i> </a>
+                                        <a href="<?php echo site_url('order/delete_order/'. $data['id'])?>"><i class="fa-sharp fa-solid fa-trash text-danger"></i> </a>
                                     </td>
                                 </tr> 
                                 <?php
@@ -342,5 +343,9 @@
     <script type="text/javascript" src="https://cdn.datatables.net/buttons/2.3.4/js/dataTables.buttons.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/buttons/2.3.4/js/buttons.html5.min.js"></script>
     
+    <script type="text/javascript" language="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script type="text/javascript" language="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/buttons/2.0.1/js/buttons.print.min.js"></script>
+
 </body>
 </html>

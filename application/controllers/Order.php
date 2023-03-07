@@ -65,6 +65,7 @@
             $table ='orders';
             $where      = array(  'date >='	=> $today);
             $order_by   = array( 'date','asc');
+            $order_by   = array( 'time','asc');
             $users_record=$this->query_Model->get_all_rows($table, $where, $order_by); 
             // $users_record=$this->query_Model->getDataOrders();
             $data['result'] = $users_record; 
@@ -101,6 +102,7 @@
             redirect("order/report", "refresh");
         }
 
+        // view order before edit
         public function update_order(){
             $id_order = $this->uri->segment(3);
     
@@ -121,6 +123,18 @@
                             'id'	=> $id_order
                         );
             $this->query_Model->update_data($arrayData,$table,$where);
+            // $this->load->view('v_order_report');
+            $this->session->set_flashdata("success", "");
+            redirect("order/report", "refresh");
+        }
+
+        public function delete_order() {
+            $id_order = $this->uri->segment(3);
+    
+    		$table = 'orders';
+    		$where = array('id' => $id_order);
+    		$this->query_Model->delete_data($table,$where);
+            $this->load->view('v_order_report');
             // $this->load->view('v_order_report');
             $this->session->set_flashdata("success", "");
             redirect("order/report", "refresh");
