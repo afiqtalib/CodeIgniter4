@@ -374,7 +374,8 @@
 
                         <div class="form-group mb-3 col-lg-6">
                             <label for="" class="label-default px-2"><i class="fa fa-location-arrow"></i>Kawasan Penghantaran</label>
-                            <select name="location" id="gender" class="form-control box-text">
+                            <input type="text" name="location" class="form-control box-text" placeholder="Location">
+                            <!-- <select name="location" id="gender" class="form-control box-text">
                                 <option value=""> Pilih lokasi tempat daerah</option>
                                 <option value="1">Kota Bharu</option>
                                 <option value="2">Kubang Kerian</option>
@@ -382,7 +383,7 @@
                                 <option value="4">Peringat</option>
                                 <option value="5">Pasir Tumboh</option>
                                 <option value="6">PCB</option>
-                            </select>
+                            </select> -->
                         </div>
                     </div>
 

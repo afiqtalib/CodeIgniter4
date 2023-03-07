@@ -69,6 +69,8 @@
             $users_record=$this->query_Model->get_all_rows($table, $where, $order_by); 
             // $users_record=$this->query_Model->getDataOrders();
             $data['result'] = $users_record; 
+            // $data['total_ayam']=$this->query_Model->count_order();
+            // $data['total_kambing']=$this->query_Model->count_order();  
             $this->load->view('v_order_report',$data);
         }
 
@@ -112,6 +114,43 @@
             $this->load->view('v_order_edit',$data);
         }
 
+        public function edit_order(){
+            // set rule/validate the input 
+                $inputData = $this->input->post();
+
+                $name = $this->input->post('name');
+    		    $phone = $this->input->post('phone');
+                $date = $this->input->post('date');
+    		    $time = $this->input->post('time');
+    		    $location = $this->input->post('location');
+    		    $pay_type = $this->input->post('pay_type');
+    		    $status = $this->input->post('status');
+                $remark = $this->input->post('remark');
+
+                $table      = 'orders';
+                $arrayData = array (
+                                'name' => $name,
+                                'phone' => $phone,
+                                'date' => $date,
+                                'time' => $time,
+                                'location'=> $location,
+                                'pay_type' => $pay_type,
+                                'status' => $status,
+                                'remark' => $remark
+                            );                    
+                $where  = array('id' => $inputData['id']);
+                $this->query_Model->update_data($arrayData,$table,$where);
+
+                $table = "orders";
+    	    	$where = array('id' => $inputData['id']);
+    		    $data['view_data'] = $this->query_Model->get_specified_row($table,$where);
+
+                echo 'okay dah';
+                // redirect("auth/register", "refresh");  
+            
+            $this->load->view('v_order_edit', $data);
+        }
+            
         public function update_data() {
             // $today = date('Y-m-d');
             $id_order = $this->uri->segment(3);

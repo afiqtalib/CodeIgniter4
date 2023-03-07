@@ -205,7 +205,7 @@
                         </div>
                         <div class="modal-body">
                 
-                            <form action="<?php echo base_url()."order/update_order"?>" method="POST" >
+                            <form action="<?php echo base_url()."order/edit_order"?>" method="POST" >
                                 <div class="row mb-3">
                                     <div class="col-6">
                                         <label for="recipient-name" class="col-form-label">Customer</label>
@@ -215,60 +215,6 @@
                                         <label for="recipient-name" class="col-form-label">Phone</label>
                                         <input type="text" class="form-control" name="phone" value="<?php echo $view_data['phone'];?>" >
                                     </div>
-                                </div>
-                                <!-- SINGLE PACK -->
-                                <div class="form-group mb-3">
-                                    <div class="mb-2 border-bottom pb-2">
-                                        <h6 class="mb-0"> <i class="fa fa-concierge-bell"></i> Single Pack</h6>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-lg-12">
-                                            <div class="d-flex justify-content-between">
-                                                <div class="col-lg-3">
-                                                    <p class="text-dark">Ayam</p>
-                                                </div>
-                                                <div class="col-lg-3">
-                                                    <p class="text-dark font-weight-bold">RM 11.00</p>
-                                                </div>
-                                                <div class="input-group w-auto justify-content-end align-items-center">
-                                                    <input type="button" value="-" class="button-minus border rounded-circle  icon-shape icon-sm mx-1 " data-field="quantity">
-                                                    <input type="number" step="1" min="0" max="10" value="0" name="p_ayam" class="quantity-field border-0 text-center w-25">
-                                                    <input type="button" value="+" class="button-plus border rounded-circle icon-shape icon-sm " data-field="quantity">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-12">
-                                            <div class="d-flex justify-content-between">
-                                                <div class="col-lg-3">
-                                                    <p class="text-dark">Kambing</p>
-                                                </div>
-                                                <div class="col-lg-3">
-                                                    <p class="text-dark font-weight-bold">RM 17.00</p>
-                                                </div>
-                                                <div class="input-group w-auto justify-content-end align-items-center">
-                                                    <input type="button" value="-" class="button-minus border rounded-circle  icon-shape icon-sm mx-1 " data-field="quantity">
-                                                    <input type="number" step="1" min="0" max="10" value="0" name="p_kambing" class="quantity-field border-0 text-center w-25">
-                                                    <input type="button" value="+" class="button-plus border rounded-circle icon-shape icon-sm " data-field="quantity">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-12">
-                                            <div class="d-flex justify-content-between">
-                                                <div class="col-lg-3">
-                                                    <p class="text-dark">Campur</p>
-                                                </div>
-                                                <div class="col-lg-3">
-                                                    <p class="text-dark font-weight-bold">RM 20.00</p> <?php echo $view_data['p_campur'];?>
-                                                </div>
-                                                <div class="input-group w-auto justify-content-end align-items-center col-lg-3">
-                                                    <input type="button" value="-" class="button-minus border rounded-circle  icon-shape icon-sm mx-1 " data-field="quantity">
-                                                    <input type="number" step="1" min="0" max="10" value="0" name="p_campur" value="<?php echo $view_data['p_campur'];?>" class="quantity-field border-3 text-center w-50">
-                                                    <input type="button" value="-" class="button-minus border rounded-circle  icon-shape icon-sm mx-1 " data-field="quantity">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
                                 </div>
 
                                 <div class="row">
@@ -326,7 +272,8 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary" name="kemaskini">Edit</button>
+                            <button type="submit" class="btn btn-primary" name="edit">Edit</button>
+                            <a name="edit" type="submit" class="btn btn-sm btn-secondary text-light"> Bacggk</a>
                         </div>
                         </div>
                     </div>

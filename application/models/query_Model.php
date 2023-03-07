@@ -97,5 +97,37 @@ class query_Model extends CI_Model
         $query = $this->db->get();
         return $query->row_array();    
     }
+
+    // count dashboard 
+    function count_order1($select,$table, $where = false, $like = false, $group_by = false)
+    {    
+        $this->db->select($select);
+        $this->db->from($table);
+
+        if($where != false)
+        {
+             $this->db->where($where); 
+        }
+		
+		if($like != false){
+            $this->db->like($like); 
+        }
+		   
+		if($group_by != false){
+		   	$this->db->group_by($group_by);
+		}
+
+        $query = $this->db->get();
+        return $query->result_array();    
+    }
+
+        function count_order()
+    {
+        $query = $this->db->select('sum(p_ayam) as total_ayam, sum(p_kambing) as total_kambing');
+        $query = $this->db->get('orders');
+        $result = $query->result();
+
+        return $result[0]->total_ayam->total_kambing;
+    }
 }
 ?>
