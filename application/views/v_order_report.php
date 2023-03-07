@@ -320,19 +320,25 @@
                 </div>
             </div>
 
-            <table class="table bg-white">
+            <table class="table bg-white text-center rounded">
                 <thead>
                     <tr>
+                        <th scope="col"></th>
+                        <th scope="col" colspan="3"> Single Pax </th>
+                        <th scope="col" colspan="3"> Set 3/4 </th>
+                        <th scope="col" colspan="3"> Set 6/7 </th>
+                    </tr>
+                    <tr>
                         <th scope="col">Tarikh</th>
-                        <th scope="col"> Pax - AYAM </th>
-                        <th scope="col"> Pax - KAMBING</th>
-                        <th scope="col"> Pax - Campur</th>
-                        <th scope="col"> 3/4 - AYAM </th>
-                        <th scope="col"> 3/4 - KAMBING</th>
-                        <th scope="col"> 3/4 - Campur</th>
-                        <th scope="col"> 6/7 - AYAM </th>
-                        <th scope="col"> 6/7 - KAMBING</th>
-                        <th scope="col"> 6/7 - Campur</th>
+                        <th scope="col"> AYAM </th>
+                        <th scope="col"> KAMBING</th>
+                        <th scope="col"> Campur</th>
+                        <th scope="col"> AYAM </th>
+                        <th scope="col"> KAMBING</th>
+                        <th scope="col"> Campur</th>
+                        <th scope="col"> AYAM </th>
+                        <th scope="col"> KAMBING</th>
+                        <th scope="col"> Campur</th>
                     </tr>
                 </thead>
                 <tbody>
