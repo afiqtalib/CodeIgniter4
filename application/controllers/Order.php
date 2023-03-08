@@ -41,7 +41,7 @@
                     $this->db->insert('orders',$data);
 
                     $this->session->set_flashdata("success", "");
-                    // redirect("auth/register", "refresh");
+                    redirect("order", "refresh");
                 }
             }
             // load view
