@@ -127,7 +127,7 @@
                                     <td><?php echo $data['location'] ?></td>
                                     <!-- <td> <a target='_blank' href=<?php echo $data['link'] ?>> <i class="fas fa-map-marked-alt fa-1x" style="color:#007FFF;"></i> </a></td> -->
                                     <td><?php echo $data['remark'] ?></td>
-                                    <td><?php echo $total =($data['p_ayam']*11)+($data['p_kambing']*17)+($data['p_campur']*20)+ ($data['dk_ayam']*50)+($data['dk_kambing']*55)+($data['dk_campur']*53)+($data['d_ayam']*75)+($data['d_kambing']*90)+($data['d_campur']*85) ?></td>
+                                    <td><?php echo $total =($data['p_ayam']*11)+($data['p_kambing']*17)+($data['p_campur']*21)+ ($data['dk_ayam']*50)+($data['dk_kambing']*55)+($data['dk_campur']*53)+($data['d_ayam']*75)+($data['d_kambing']*90)+($data['d_campur']*85) ?></td>
                                     <?php 
                                         if ($data['status']!='unpaid') {
                                             $status="success";
@@ -302,7 +302,7 @@
                             <?php 
                                 $totPriceAyam = $count_total_pAyam*11.00;
                                 $totPriceKambing = $count_total_pKambing*17.00;
-                                $totPriceCampur = $count_total_pCampur*20.00;
+                                $totPriceCampur = $count_total_pCampur*21.00;
 
                                 $totPrice_dk_Ayam = $count_total_dk_Ayam*50.00;
                                 $totPrice_dk_Kambing = $count_total_dk_Kambing*55.00;
@@ -339,6 +339,7 @@
                         <th scope="col"> AYAM </th>
                         <th scope="col"> KAMBING</th>
                         <th scope="col"> Campur</th>
+                        <th scope="col"> Total Order</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -356,6 +357,7 @@
                         <td><?php echo $p['total_Dayam'] ?></td>
                         <td><?php echo $p['total_Dkambing'] ?></td>
                         <td><?php echo $p['total_Dcampur'] ?></td>
+                        <td><?php echo $p['total_order'] ?></td>
                     </tr>
                     <?php } ?> 
                 </tbody>

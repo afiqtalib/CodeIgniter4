@@ -123,7 +123,7 @@ class query_Model extends CI_Model
 
         function count_order()
     {
-        $query = $this->db->select('date, sum(p_ayam) as total_Payam, sum(p_kambing) as total_Pkambing, sum(p_campur) as total_Pcampur');
+        $query = $this->db->select('date, count(id) as total_order, sum(p_ayam) as total_Payam, sum(p_kambing) as total_Pkambing, sum(p_campur) as total_Pcampur');
         $query = $this->db->select('sum(dk_ayam) as total_Dkayam, sum(dk_kambing) as total_Dkkambing, sum(dk_campur) as total_Dkcampur');
         $query = $this->db->select('sum(d_ayam) as total_Dayam, sum(d_kambing) as total_Dkambing, sum(d_campur) as total_Dcampur');
         $query = $this->db->from('orders');
