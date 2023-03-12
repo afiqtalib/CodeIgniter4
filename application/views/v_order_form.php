@@ -219,7 +219,7 @@
                                         <p class="text-dark">Campur</p>
                                     </div>
                                     <div class="col-lg-3">
-                                        <p class="text-dark font-weight-bold">RM 20.00</p>
+                                        <p class="text-dark font-weight-bold">RM 21.00</p>
                                     </div>
                                     <div class="input-group w-auto justify-content-end align-items-center">
                                         <input type="button" value="-" class="button-minus border rounded-circle  icon-shape icon-sm mx-1 " data-field="quantity">
