@@ -9,7 +9,7 @@
                 $this->form_validation->set_rules('phone','Phone','required|min_length[10]|max_length[11]');
                 $this->form_validation->set_rules('date','Tarikh','required');
                 $this->form_validation->set_rules('time','Masa','required');
-                $this->form_validation->set_rules('link','Link Google Maps','required');
+                $this->form_validation->set_rules('link','Link Google Maps');
                 $this->form_validation->set_rules('location','Location','required');
                 $this->form_validation->set_rules('remark','Remark','required');
 

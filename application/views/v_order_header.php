@@ -13,7 +13,9 @@
 			<a class="navbar-brand" href="#">
 				<img src="<?php echo base_url('assets/image/iman-catering.png');?>" alt="Logo" width="10%" class="d-inline-block align-text-top">
 			</a>
-			<a class="" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample"> 
+			<div class="navbar-brand" id="digital-clock"></div>
+
+			<a class="navbar-brand" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample"> 
 				<i class="fa fa-bars fa-lg" style="color: #660000;"></i>
 			</a>
 		</div>
@@ -51,6 +53,9 @@
 		var currentDate = new Date();
 		var day = currentDate.getDate();
 		var month = currentDate.getMonth() + 1; // January is 0
+		const month = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+		const bulan = new Date();
+		let name = month[d.getMonth()];
 		var year = currentDate.getFullYear();
 		var hours = currentDate.getHours();
 		var minutes = currentDate.getMinutes();
@@ -68,7 +73,7 @@
 		}
 
 		// Concatenate the date and time into a single string
-		var dateString = month + "/" + day + "/" + year + " " + hours + ":" + minutes + ":" + seconds;
+		var dateString = day + "-" + month + "-" + year + " JAM " + hours + ":" + minutes + ":" + seconds;
 
 		// Update the date and time display
 		document.getElementById("digital-clock").innerHTML = dateString;
