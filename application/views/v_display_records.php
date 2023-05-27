@@ -38,6 +38,12 @@
     }
     ?>
   </table>
+
+  <center style="padding: 15px;">
+
+  <input type="button" value="Back" onclick="window.history.back()" />
+
+  </center>
 </body>
 
 </html>

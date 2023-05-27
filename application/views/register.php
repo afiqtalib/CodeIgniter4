@@ -77,10 +77,11 @@
                     </div>
 
                     <div class="text-center">
-                        <button class="btn btn-primary btn-user btn-block mt-2 mb-3" name="register"> 
-                        <i class="fa fa-user-plus"></i> Register    
+                        <button class="btn btn-primary btn-user mt-2 mb-3" name="register"> 
+                            <i class="fa fa-user-plus"></i> Register    
                         </button>
-                        <a href="login" class="ca">Login</a>
+                        <a href="login" class="ca btn btn-light"><i class="fa fa-arrow-right"></i>Login</a>
+                        <a href="<?php echo base_url()."index.php/auth/displaydata"?>" class="btn btn-dark">List Data</a>
                     </div>
                 </form>
 

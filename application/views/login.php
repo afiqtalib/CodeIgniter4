@@ -66,6 +66,9 @@
                         <button class="btn btn-primary btn-user btn-block mt-2 mb-3" name="login"> 
                         <i class="fa fa-walking"></i> Login   
                         </button>
+
+                        <input type="button" value="Back" onclick="window.history.back()" />
+
                     </div>
                 </form>
             </div>
