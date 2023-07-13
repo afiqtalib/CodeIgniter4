@@ -1,9 +1,15 @@
-*******************
+********************************
 Functionalities of this project 
-*******************
+********************************
 - Sign Up Form with validation 
-- Login Form 
+- Login Form with authentication
 - Homepage 
+
+********************************
+How to run the system
+********************************
+- Turn on/Start server Laragon 
+- `http://codeigniter4.test/index.php/auth/register`
 
 ###################
 What is CodeIgniter
