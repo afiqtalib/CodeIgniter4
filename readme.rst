@@ -6,11 +6,17 @@ System & Web Application
 - Sign Up Form with validation 
 - Login Form with authentication
 - Homepage 
+
 2. Ordering System 
 
 - Submit Order 
 - View Dashboard 
 - View Sales Report 
+
+3. HelpDesk System
+
+- Submit Inquires to Customer Service 
+- Auto direct to WhatsApp
 
 ********************************
 How to run the system
@@ -22,8 +28,10 @@ How to run the system
 
 2. Ordering System 
 
-- Turn on/Start server Laragon 
-- `http://localhost/codeigniter4/index.php/order`
+- `http://codeigniter4.test/index.php/order`
+
+3. Help Desk System
+- `http://codeigniter4.test/index.php/Help`
 
 
 ###################
