@@ -1,15 +1,25 @@
 ********************************
-Functionalities of this project 
+System & Web Application
 ********************************
+1. Authentication & Validation 
 - Sign Up Form with validation 
 - Login Form with authentication
 - Homepage 
+2. Ordering System 
+- Submit Order 
+- View Dashboard 
+- View Sales Report 
 
 ********************************
 How to run the system
 ********************************
+1. Authentication & Validation 
 - Turn on/Start server Laragon 
 - `http://codeigniter4.test/index.php/auth/register`
+
+2. Ordering System 
+- Turn on/Start server Laragon 
+- `http://localhost/codeigniter4/index.php/order`
 
 ###################
 What is CodeIgniter
