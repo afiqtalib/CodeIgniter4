@@ -1,3 +1,10 @@
+*******************
+Functionalities of this project 
+*******************
+- Sign Up Form with validation 
+- Login Form 
+- Homepage 
+
 ###################
 What is CodeIgniter
 ###################
