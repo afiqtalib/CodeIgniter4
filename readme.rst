@@ -1,3 +1,40 @@
+********************************
+System & Web Application
+********************************
+1. Authentication & Validation 
+
+- Sign Up Form with validation 
+- Login Form with authentication
+- Homepage 
+
+2. Ordering System 
+
+- Submit Order 
+- View Dashboard 
+- View Sales Report 
+
+3. HelpDesk System
+
+- Submit Inquires to Customer Service 
+- Auto direct to WhatsApp
+
+********************************
+How to run the system
+********************************
+1. Authentication & Validation 
+
+- Turn on/Start server Laragon 
+- `http://codeigniter4.test/index.php/auth/register`
+
+2. Ordering System 
+
+- `http://codeigniter4.test/index.php/order`
+
+3. Help Desk System
+
+- `http://codeigniter4.test/index.php/Help`
+
+
 ###################
 What is CodeIgniter
 ###################
